@@ -155,7 +155,7 @@ MonoBehaviour:
   firstPersonCamera: {fileID: 1322699746698212617}
   sensitivity: 100
   clampAngle: 80
-  crosshair: {fileID: 0}
+  crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
 --- !u!1 &7717209492008665497
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   firstPersonCamera: {fileID: 1322699746698212617}
   sensitivity: 100
   clampAngle: 80
-  crosshair: {fileID: 0}
+  crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
 --- !u!1 &8127426068557124612
 GameObject:
   m_ObjectHideFlags: 0
