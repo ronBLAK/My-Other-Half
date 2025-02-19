@@ -14,7 +14,7 @@ public class MazeGenerator : MonoBehaviour
     private MazeCell[,] mazeGrid;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    IEnumerator Start()
+    void Start()
     {
         mazeGrid = new MazeCell[mazeWidth, mazeDepth];
 
@@ -26,15 +26,13 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        yield return GenerateMaze(null, mazeGrid[0, 0]);
+        GenerateMaze(null, mazeGrid[0, 0]);
     }
 
-    private IEnumerator GenerateMaze(MazeCell previousCell, MazeCell currentCell)
+    private void GenerateMaze(MazeCell previousCell, MazeCell currentCell)
     {
         currentCell.Visit();
         ClearWalls(previousCell, currentCell);
-
-        yield return new WaitForSeconds(0.05f);
 
         MazeCell nextCell;
 
@@ -43,7 +41,7 @@ public class MazeGenerator : MonoBehaviour
 
             if (nextCell != null)
             {
-                yield return GenerateMaze(currentCell, nextCell);
+                GenerateMaze(currentCell, nextCell);
             }
 
         } while(nextCell != null);
