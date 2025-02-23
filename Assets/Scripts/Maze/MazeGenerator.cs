@@ -10,12 +10,24 @@ public class MazeGenerator : MonoBehaviour
 
     [SerializeField]
     private int mazeWidth, mazeDepth;
+    
+    private int seed;
 
     private MazeCell[,] mazeGrid;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if(PlayerPrefs.HasKey("Seed"))
+        {
+            seed = PlayerPrefs.GetInt("Seed");
+            Random.InitState(seed);
+        } else
+        {
+            int randomSeed = Random.Range(1, 1000000);
+            Random.InitState(randomSeed);
+        }
+
         mazeGrid = new MazeCell[mazeWidth, mazeDepth];
 
         for (int x = 0; x < mazeWidth; x++)
@@ -27,6 +39,14 @@ public class MazeGenerator : MonoBehaviour
         }
 
         GenerateMaze(null, mazeGrid[0, 0]);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // save seed value with PlayerPrefs
+        PlayerPrefs.SetInt("Seed", seed);
+        PlayerPrefs.Save();
     }
 
     private void GenerateMaze(MazeCell previousCell, MazeCell currentCell)
@@ -138,11 +158,5 @@ public class MazeGenerator : MonoBehaviour
 
             return;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

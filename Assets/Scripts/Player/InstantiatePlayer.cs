@@ -9,9 +9,6 @@ public class InstantiatePlayer : MonoBehaviour
     private Vector3 savedPos;
     private Quaternion savedRot;
 
-    [SerializeField]
-    private bool deletePlayerPrefs;
-
     void Start()
     {
         if(PlayerPrefs.HasKey("SavedPosX"))
