@@ -10,9 +10,15 @@ public class SceneSwitchTimer : MonoBehaviour
     public float remainingTime; // Time left in the countdown
     public TextMeshProUGUI timerText; // Reference to the UI Text component for displaying the timer
 
+    Scene currentScene; // Reference to the current scene
+    string sceneName; // reference to the name of the current scene name
+
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name; // name of the currently active scene
+
         // Convert minutes and seconds to total time in seconds
         totalTime = minutes * 60 + seconds;
         remainingTime = totalTime;
@@ -56,7 +62,13 @@ public class SceneSwitchTimer : MonoBehaviour
     // Method called when the timer ends
     public void TimerEnded()
     {
-        // Load the scene named "LoseScene" to handle the end of the timer
-        SceneManager.LoadScene("WifeMaze");
+        // Load the other character's scene based on the currently active scene
+        if(sceneName == "HusbandMaze")
+        {
+            SceneManager.LoadScene("WifeMaze");
+        } else if (sceneName == "WifeMaze")
+        {
+            SceneManager.LoadScene("HusbandMaze");
+        }
     }
 }
