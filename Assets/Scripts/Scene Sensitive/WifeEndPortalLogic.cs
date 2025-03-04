@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class WifeEndPortalLogic : MonoBehaviour
 {
-    public static bool hasWifeEnteredPortal;
+    public static bool hasWifeEnteredPortal; // boolean to track if wife has entered portal
     
     [SerializeField]
-    private GameObject sceneSwitchTimer, timerScript;
+    private GameObject sceneSwitchTimer, timerScript; // references to scene switch timer and timer script
 
 
     private void Start()
     {
+        // disables the scene switching timer on the wife maze (disabling scene switching mechanic), if the husband has entered the portal (husband finishes level)
         if (sceneSwitchTimer != null)
         {
             if(HusbandEndPortalLogic.hasHusbandEnteredPortal){
@@ -28,13 +29,40 @@ public class WifeEndPortalLogic : MonoBehaviour
     {
         Debug.Log("wife entered the trigger");
 
-        hasWifeEnteredPortal = true;
+        hasWifeEnteredPortal = true; // sets the wife portal entered state to true (wife has entered the collider of the portal)
+
+        if(PlayerPrefs.HasKey("SavedPosXWife"))
+        {
+            Debug.Log("key does exist and is about to be deleted");
+
+            // deletes all saved wife position data
+            PlayerPrefs.DeleteKey("SavedPosXWife");
+            PlayerPrefs.DeleteKey("SavedPosYWife");
+            PlayerPrefs.DeleteKey("SavedPosZWife");
+
+            // deletes all saved wife rotation data
+            PlayerPrefs.DeleteKey("SavedRotXWife");
+            PlayerPrefs.DeleteKey("SavedRotYWife");
+            PlayerPrefs.DeleteKey("SavedRotZWife");
+            PlayerPrefs.DeleteKey("SavedRotWWife");
+
+            // also deletes maze data, ensuring that new maze in created for husband on next run
+
+            PlayerPrefs.Save();
+            Debug.Log("keys deleted successfully");
+        } else
+        {
+            Debug.Log("key does not exist");
+        }
         
+        // loads the husband scene if it has not yet been completed (husband has not yet entered his portal)
+        // loads the end scene if husband maze has been completed
         if(!HusbandEndPortalLogic.hasHusbandEnteredPortal)
         {
             SceneManager.LoadScene("HusbandMaze");
         } else
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("EndScene");
         }
     }

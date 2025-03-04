@@ -11,25 +11,25 @@ public class InstantiateWife : MonoBehaviour
 
     void Start()
     {
-        // if(PlayerPrefs.HasKey("SavedPosXWife"))
-        // {
-        //     savedPositionWife = new Vector3(
-        //         PlayerPrefs.GetFloat("SavedPosXWife"),
-        //         PlayerPrefs.GetFloat("SavedPosYWife"),
-        //         PlayerPrefs.GetFloat("SavedPosZWife")
-        //     );
+        if(PlayerPrefs.HasKey("SavedPosXWife"))
+        {
+            savedPositionWife = new Vector3(
+                PlayerPrefs.GetFloat("SavedPosXWife"),
+                PlayerPrefs.GetFloat("SavedPosYWife"),
+                PlayerPrefs.GetFloat("SavedPosZWife")
+            );
 
-        //     savedRotationWife = new Quaternion(
-        //         PlayerPrefs.GetFloat("SavedRotXWife"),
-        //         PlayerPrefs.GetFloat("SavedRotYWife"),
-        //         PlayerPrefs.GetFloat("SavedRotZWife"),
-        //         PlayerPrefs.GetFloat("SavedRotWWife")
-        //     );
-        // } else
-        // {
+            savedRotationWife = new Quaternion(
+                PlayerPrefs.GetFloat("SavedRotXWife"),
+                PlayerPrefs.GetFloat("SavedRotYWife"),
+                PlayerPrefs.GetFloat("SavedRotZWife"),
+                PlayerPrefs.GetFloat("SavedRotWWife")
+            );
+        } else
+        {
             savedPositionWife = Vector3.zero;
             savedRotationWife = Quaternion.identity;
-        // }
+        }
 
         // spawns the player at the savedPos (0, 0, 0) with a savedRot (quaternion.identity)
         spawnedPlayer = Instantiate(player, savedPositionWife, savedRotationWife);
@@ -37,6 +37,13 @@ public class InstantiateWife : MonoBehaviour
 
     void Update()
     {
+        // skips saving player resaving wife's position after its been deleted (prevents the wife from being spawned at same position as the end of the game)
+        if(!PlayerPrefs.HasKey("SavedPosXHusband"))
+        {
+            Debug.Log("skipping save as values cleared");
+            return;
+        }
+
         savedPositionWife = spawnedPlayer.transform.position;
         savedRotationWife = spawnedPlayer.transform.rotation;
 

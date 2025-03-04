@@ -636,13 +636,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224784003}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.314, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 19.29, y: 0, z: 18.89}
   m_LocalScale: {x: 1, y: 1, z: 0.0875}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1224784008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,7 +655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee0fa13e63704ef8b4d720fe0cbb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasWifeEnteredPortal: 0
   sceneSwitchTimer: {fileID: 358323188}
   timerScript: {fileID: 1917889474}
 --- !u!65 &1224784009
@@ -1033,8 +1032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764a494ec77d248b7b038ec0c8d12457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 0
-  seconds: 10
+  minutes: 2
+  seconds: 30
   remainingTime: 0
   timerText: {fileID: 358323190}
 --- !u!114 &1917889477
