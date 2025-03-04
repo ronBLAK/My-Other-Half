@@ -11,25 +11,25 @@ public class InstantiateHusband : MonoBehaviour
 
     void Start()
     {
-        if(PlayerPrefs.HasKey("SavedPosXHusband"))
-        {
-            savedPositionHusband = new Vector3(
-                PlayerPrefs.GetFloat("SavedPosXHusband"),
-                PlayerPrefs.GetFloat("SavedPosYHusband"),
-                PlayerPrefs.GetFloat("SavedPosZHusband")
-            );
+        // if(PlayerPrefs.HasKey("SavedPosXHusband"))
+        // {
+        //     savedPositionHusband = new Vector3(
+        //         PlayerPrefs.GetFloat("SavedPosXHusband"),
+        //         PlayerPrefs.GetFloat("SavedPosYHusband"),
+        //         PlayerPrefs.GetFloat("SavedPosZHusband")
+        //     );
 
-            savedRotationWife = new Quaternion(
-                PlayerPrefs.GetFloat("SavedRotXHusband"),
-                PlayerPrefs.GetFloat("SavedRotYHusband"),
-                PlayerPrefs.GetFloat("SavedRotZHusband"),
-                PlayerPrefs.GetFloat("SavedRotWHusband")
-            );
-        } else
-        {
+        //     savedRotationWife = new Quaternion(
+        //         PlayerPrefs.GetFloat("SavedRotXHusband"),
+        //         PlayerPrefs.GetFloat("SavedRotYHusband"),
+        //         PlayerPrefs.GetFloat("SavedRotZHusband"),
+        //         PlayerPrefs.GetFloat("SavedRotWHusband")
+        //     );
+        // } else
+        // {
             savedPositionHusband = Vector3.zero;
             savedRotationWife = Quaternion.identity;
-        }
+        // }
 
         // spawns the player at the savedPos (0, 0, 0) with a savedRot (quaternion.identity)
         spawnedPlayer = Instantiate(player, savedPositionHusband, savedRotationWife);

@@ -5,6 +5,6 @@ public class HomeScreenButtons : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("HusbandMaze");
+        SceneManager.LoadScene("HusbandMaze", LoadSceneMode.Single);
     }
 }
