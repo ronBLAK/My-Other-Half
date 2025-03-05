@@ -38,12 +38,11 @@ public class InstantiateHusband : MonoBehaviour
     void Update()
     {
         // skips saving player resaving husband's position after its been deleted (prevents the husband from being spawned at same position as the end of the game)
-        if(!PlayerPrefs.HasKey("SavedPosXHusband"))
+        if(HusbandEndPortalLogic.hasHusbandEnteredPortal)
         {
-            Debug.Log("skipping save as values cleared");
             return;
         }
-
+        
         savedPositionHusband = spawnedPlayer.transform.position;
         savedRotationHusband = spawnedPlayer.transform.rotation;
 
