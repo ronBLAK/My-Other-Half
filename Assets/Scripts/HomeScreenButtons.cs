@@ -10,6 +10,8 @@ public class HomeScreenButtons : MonoBehaviour
 
     public void Home()
     {
+        HusbandEndPortalLogic.hasHusbandEnteredPortal = false;
+        WifeEndPortalLogic.hasWifeEnteredPortal = false;
         SceneManager.LoadScene("HomeScene");
     }
 }
