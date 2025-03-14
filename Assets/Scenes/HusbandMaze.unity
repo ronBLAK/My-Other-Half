@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneSwitchTimer: {fileID: 1629976597}
-  timerScript: {fileID: 1675721860}
+  timerScriptGO: {fileID: 1675721860}
 --- !u!65 &841581764
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -549,6 +549,51 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970561694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1181628976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181628978}
+  - component: {fileID: 1181628977}
+  m_Layer: 0
+  m_Name: Don't Destroy On Load
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1181628977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181628976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6f177e9765545de8482521f55713bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTimer: {fileID: 1675721860}
+--- !u!4 &1181628978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181628976}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -859,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764a494ec77d248b7b038ec0c8d12457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 2
+  minutes: 1
   seconds: 30
   remainingTime: 0
   timerText: {fileID: 1629976598}
@@ -890,8 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea616803f0874fd9b3785d5010f2ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerOn: 0
-  timeRemaining: 0
+  timerOn: 1
   totalTimerText: {fileID: 1365891140}
 --- !u!1 &1713027049
 GameObject:
@@ -1219,3 +1263,4 @@ SceneRoots:
   - {fileID: 970561697}
   - {fileID: 1675721862}
   - {fileID: 841581762}
+  - {fileID: 1181628978}

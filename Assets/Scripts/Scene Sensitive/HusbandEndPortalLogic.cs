@@ -6,17 +6,21 @@ public class HusbandEndPortalLogic : MonoBehaviour
     public static bool hasHusbandEnteredPortal; // boolean to track if husband has entered his portal
 
     [SerializeField]
-    private GameObject sceneSwitchTimer, timerScript; // references to the scene switch timer game object and timer script
+    private GameObject sceneSwitchTimer, timerScriptGO; // references to the scene switch timer game object and timer script
+
+    private SceneSwitchTimer timerScript; // reference to the timer script
 
     private void Start()
     {
+        timerScript = timerScriptGO.GetComponent<SceneSwitchTimer>();
+
         // disables the scene switching timer on the husband maze (disabling scene switching mechanic), if the wife has entered the portal (wife finishes level)
         if(sceneSwitchTimer != null)
         {
             if(WifeEndPortalLogic.hasWifeEnteredPortal)
             {
                 sceneSwitchTimer.SetActive(false);
-                timerScript.SetActive(false);
+                timerScript.enabled = false;
             } else
             {
                 Debug.Log("wife has not yet entered her portal, scene will continue to switch");
@@ -62,6 +66,7 @@ public class HusbandEndPortalLogic : MonoBehaviour
         } else
         {
             Cursor.lockState = CursorLockMode.None;
+
             SceneManager.LoadScene("EndScene");
         }
     }

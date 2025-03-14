@@ -6,18 +6,20 @@ using UnityEngine;
 public class MazeGenerator : MonoBehaviour
 {
     [SerializeField]
-    private MazeCell mazeCellPrefab;
+    private MazeCell mazeCellPrefab; // reference tp the maze cell constructer
 
     [SerializeField]
-    private int mazeWidth, mazeDepth;
+    private int mazeWidth, mazeDepth; // holds the width and depth of the maze
     
-    private int seed;
+    private int seed; // holds the random seed for the maze generation
 
-    private MazeCell[,] mazeGrid;
+    private MazeCell[,] mazeGrid; // holds the maze grid
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // loads the saved seed if a seed exists
+        // if not, loads a maze with a new seed
         if(PlayerPrefs.HasKey("Seed"))
         {
             seed = PlayerPrefs.GetInt("Seed");
@@ -28,8 +30,9 @@ public class MazeGenerator : MonoBehaviour
             Random.InitState(randomSeed);
         }
 
-        mazeGrid = new MazeCell[mazeWidth, mazeDepth];
+        mazeGrid = new MazeCell[mazeWidth, mazeDepth]; // creates a new maze grid
 
+        // loops the width and depth of maze grid and places instances of the maze cell prefab
         for (int x = 0; x < mazeWidth; x++)
         {
             for (int z = 0; z < mazeDepth; z++)
@@ -38,7 +41,7 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        GenerateMaze(null, mazeGrid[0, 0]);
+        GenerateMaze(null, mazeGrid[0, 0]); // generates the maze according to the maze width and depth
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class MazeGenerator : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    // method to generate maze
     private void GenerateMaze(MazeCell previousCell, MazeCell currentCell)
     {
         currentCell.Visit();
@@ -67,6 +71,7 @@ public class MazeGenerator : MonoBehaviour
         } while(nextCell != null);
     }
 
+    // returns all unvisited cells adjacant to the current cell
     private MazeCell GetNextUnvisitedCell(MazeCell currentCell)
     {
         var unvisitedCells = GetUnvisitedCells(currentCell);
@@ -74,6 +79,7 @@ public class MazeGenerator : MonoBehaviour
         return unvisitedCells.OrderBy(_ => Random.Range(1, 10)).FirstOrDefault();
     }
 
+    // updates the visited state of the each of the unvisited celle
     private IEnumerable<MazeCell> GetUnvisitedCells(MazeCell currentCell)
     {
         int x = (int)currentCell.transform.position.x;
@@ -120,6 +126,7 @@ public class MazeGenerator : MonoBehaviour
         }
     }
 
+    // executes the clearing of the walls
     private void ClearWalls(MazeCell previousCell, MazeCell currentCell)
     {
         if(previousCell == null)

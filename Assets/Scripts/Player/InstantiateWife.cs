@@ -11,6 +11,7 @@ public class InstantiateWife : MonoBehaviour
 
     void Start()
     {
+        // gets the saved wife information (if there is one), to be passed into the instantiate method
         if(PlayerPrefs.HasKey("SavedPosXWife"))
         {
             savedPositionWife = new Vector3(
@@ -43,6 +44,7 @@ public class InstantiateWife : MonoBehaviour
             return;
         }
         
+        // constantly updates the saved position and rotation of the wife
         savedPositionWife = spawnedPlayer.transform.position;
         savedRotationWife = spawnedPlayer.transform.rotation;
 

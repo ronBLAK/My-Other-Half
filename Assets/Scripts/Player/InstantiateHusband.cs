@@ -11,6 +11,7 @@ public class InstantiateHusband : MonoBehaviour
 
     void Start()
     {
+        // gets the saved husband information (if there is one), to be passed into the instaniate husband method
         if(PlayerPrefs.HasKey("SavedPosXHusband"))
         {
             savedPositionHusband = new Vector3(
@@ -43,6 +44,7 @@ public class InstantiateHusband : MonoBehaviour
             return;
         }
         
+        // constantly updates the saved postion and rotation of the husband
         savedPositionHusband = spawnedPlayer.transform.position;
         savedRotationHusband = spawnedPlayer.transform.rotation;
 

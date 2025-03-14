@@ -12,6 +12,7 @@ public class HomeScreenButtons : MonoBehaviour
     {
         HusbandEndPortalLogic.hasHusbandEnteredPortal = false;
         WifeEndPortalLogic.hasWifeEnteredPortal = false;
+        PlayerPrefs.DeleteKey("TimerValue");
         SceneManager.LoadScene("HomeScene");
     }
 }

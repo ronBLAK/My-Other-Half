@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Camera playerCamera; // Reference to the Camera to calculate movement relative to it
     private float currentSpeed; // Variable to store the current speed (walk or run)
 
-    // Reference to the GroundCheck script for detecting if the player is on the ground
+    // Reference to the Ground check script for detecting if the player is on the ground
     private GroundCheck groundDetector;
 
     public CharacterController playerCharacterController; // Reference to the CharacterController component

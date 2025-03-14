@@ -1,18 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class TotalTime : MonoBehaviour
 {
-    public bool timerOn;
-    public float timeRemaining;
-    public TextMeshProUGUI totalTimerText;
+    public bool timerOn; // boolean to track whether the forwards timer is turned on
+    public static float timeRemaining; // float var to track the time remaining (in seconds)
+    public TextMeshProUGUI totalTimerText; // reference to the total timer text in the scene
 
     void Start()
     {
         if(PlayerPrefs.HasKey("TimerValue"))
         {
             timeRemaining = PlayerPrefs.GetFloat("TimerValue");
+            UpdateTimer(timeRemaining);
         } else
         {
             timeRemaining = 0;
@@ -27,6 +27,7 @@ public class TotalTime : MonoBehaviour
 
             // set player pref value for time
             PlayerPrefs.SetFloat("TimerValue", timeRemaining);
+            PlayerPrefs.Save();
 
             UpdateTimer(timeRemaining);
         } else
@@ -35,7 +36,7 @@ public class TotalTime : MonoBehaviour
         }
     }
 
-    private void UpdateTimer(float timer)
+    public void UpdateTimer(float timer)
     {
         timer += 1;
 
