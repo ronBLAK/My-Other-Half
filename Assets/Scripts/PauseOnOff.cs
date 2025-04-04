@@ -8,7 +8,7 @@ public class PauseOnOff : MonoBehaviour
     // Reference to the pause menu GameObject
     public GameObject pauseMenu;
 
-    private bool gamePaused = false; // Flag to track if the game is currently paused
+    public static bool gamePaused = false; // Flag to track if the game is currently paused
 
     // Update is called once per frame
     public void Update()

@@ -1,11 +1,20 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class TotalTime : MonoBehaviour
 {
     public bool timerOn; // boolean to track whether the forwards timer is turned on
     public static float timeRemaining; // float var to track the time remaining (in seconds)
     public TextMeshProUGUI totalTimerText; // reference to the total timer text in the scene
+
+    // referecnce to the restart button
+    public Button restartButton;
+    private bool isRestartButtonPressed = false;
+
+    // holds don't save and quit button
+    public Button dontSaveQuitButton;
+    private bool isDontSaveQuitButtonPressed = false;
 
     void Start()
     {
@@ -17,6 +26,9 @@ public class TotalTime : MonoBehaviour
         {
             timeRemaining = 0;
         }
+
+        restartButton.onClick.AddListener(() => isRestartButtonPressed = true);
+        dontSaveQuitButton.onClick.AddListener(() => isDontSaveQuitButtonPressed = true);
     }
 
     void Update()
@@ -26,6 +38,12 @@ public class TotalTime : MonoBehaviour
             timeRemaining += Time.deltaTime;
 
             // set player pref value for time
+            if(isRestartButtonPressed || isDontSaveQuitButtonPressed)
+            {
+                return;
+            }
+
+            // if the restart button is not pressed, the retain the timer value
             PlayerPrefs.SetFloat("TimerValue", timeRemaining);
             PlayerPrefs.Save();
 

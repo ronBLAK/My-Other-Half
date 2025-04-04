@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InstantiateHusband : MonoBehaviour
 {
@@ -8,6 +9,14 @@ public class InstantiateHusband : MonoBehaviour
     // variables to hold the player 's position and rotation
     private Vector3 savedPositionHusband;
     private Quaternion savedRotationHusband;
+
+    // holds the restart button
+    public Button restartButton;
+    private bool isRestartButtonPressed = false;
+
+    // holds don't save and quit button
+    public Button dontSaveQuitButton;
+    private bool isDontSaveQuitButtonPressed = false;
 
     void Start()
     {
@@ -34,12 +43,16 @@ public class InstantiateHusband : MonoBehaviour
 
         // spawns the player at the savedPos (0, 0, 0) with a savedRot (quaternion.identity)
         spawnedPlayer = Instantiate(player, savedPositionHusband, savedRotationHusband);
+
+        // add a listener for for the restart and dontSaveQuitButton button
+        restartButton.onClick.AddListener(() => isRestartButtonPressed = true);
+        dontSaveQuitButton.onClick.AddListener(() => isDontSaveQuitButtonPressed = true);
     }
 
     void Update()
     {
         // skips saving player resaving husband's position after its been deleted (prevents the husband from being spawned at same position as the end of the game)
-        if(HusbandEndPortalLogic.hasHusbandEnteredPortal)
+        if(HusbandEndPortalLogic.hasHusbandEnteredPortal || isRestartButtonPressed || isDontSaveQuitButtonPressed)
         {
             return;
         }

@@ -49,8 +49,6 @@ public class HusbandEndPortalLogic : MonoBehaviour
             PlayerPrefs.DeleteKey("SavedRotZHusband");
             PlayerPrefs.DeleteKey("SavedRotWHusband");
 
-            // also deletes maze data, ensuring that new maze in created for husband on next run
-
             PlayerPrefs.Save();
             Debug.Log("keys deleted successfully");
         } else

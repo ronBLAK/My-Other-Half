@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro; // Include this if you are using Unity UI
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneSwitchTimer : MonoBehaviour
 {
