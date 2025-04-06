@@ -21,7 +21,7 @@ public class PauseOnOff : MonoBehaviour
                 // Pause the game
                 pauseMenu.SetActive(true); // Show the pause menu
                 Time.timeScale = 0f; // Freeze game time
-                gamePaused = true;
+                gamePaused = true; // set flag to true
 
                 // Make the cursor visible and unlock it
                 Cursor.lockState = CursorLockMode.None;

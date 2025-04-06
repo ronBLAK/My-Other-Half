@@ -7,6 +7,13 @@ TagManager:
   - CinemachineTarget
   - Obstacles
   - Ground
+  - red key
+  - blue key
+  - green key
+  - red lock
+  - blue lock
+  - green lock
+  - key holder
   layers:
   - Default
   - TransparentFX

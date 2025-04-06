@@ -24,6 +24,8 @@ public class ButtonManager : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         PauseOnOff.gamePaused = false;
         
         GameObject pauseMenu = GameObject.Find("pause menu");
