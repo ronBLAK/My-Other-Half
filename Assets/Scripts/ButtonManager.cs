@@ -81,6 +81,43 @@ public class ButtonManager : MonoBehaviour
             Debug.Log("wife key does not exist");
         }
 
+        // key deletetion
+        if(PlayerPrefs.HasKey("SavedBlueKeyPositionX"))
+        {
+            // blue key
+            PlayerPrefs.DeleteKey("SavedBlueKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedBlueKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedBlueKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedBlueKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedBlueKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedBlueKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedBlueKeyRotationW");
+            PlayerPrefs.Save();
+
+            // green key
+            PlayerPrefs.DeleteKey("SavedGreenKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedGreenKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedGreenKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedGreenKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedGreenKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedGreenKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedGreenKeyRotationW");
+            PlayerPrefs.Save();
+
+            // red key
+            PlayerPrefs.DeleteKey("SavedRedKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedRedKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedRedKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedRedKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedRedKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedRedKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedRedKeyRotationW");
+            PlayerPrefs.Save();
+        }
+
         // timer value deletion
         if(PlayerPrefs.HasKey("TimerValue"))
         {
