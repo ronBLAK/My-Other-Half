@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InstantiateKeys : MonoBehaviour
+public class InstantiateKeysHusbandMaze : MonoBehaviour
 {
     // references to the gameobjects to be spawned
     [Header("Key Prefabs")]
@@ -45,47 +45,47 @@ public class InstantiateKeys : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(PlayerPrefs.HasKey("SavedBlueKeyPositionX"))
+        if(PlayerPrefs.HasKey("SavedHusbandBlueKeyPositionX"))
         {
             // get saved positions for each key
             savedBlueKeyPosition = new Vector3(
-                PlayerPrefs.GetFloat("SavedBlueKeyPositionX"),
-                PlayerPrefs.GetFloat("SavedBlueKeyPositionY"),
-                PlayerPrefs.GetFloat("SavedBlueKeyPositionZ")
+                PlayerPrefs.GetFloat("SavedHusbandBlueKeyPositionX"),
+                PlayerPrefs.GetFloat("SavedHusbandBlueKeyPositionY"),
+                PlayerPrefs.GetFloat("SavedHusbandBlueKeyPositionZ")
             );
 
             savedGreenKeyPosition = new Vector3(
-                PlayerPrefs.GetFloat("SavedGreenKeyPositionX"),
-                PlayerPrefs.GetFloat("SavedGreenKeyPositionY"),
-                PlayerPrefs.GetFloat("SavedGreenKeyPositionZ")
+                PlayerPrefs.GetFloat("SavedHusbandGreenKeyPositionX"),
+                PlayerPrefs.GetFloat("SavedHusbandGreenKeyPositionY"),
+                PlayerPrefs.GetFloat("SavedHusbandGreenKeyPositionZ")
             );
 
             savedRedKeyPosition = new Vector3(
-                PlayerPrefs.GetFloat("SavedRedKeyPositionX"),
-                PlayerPrefs.GetFloat("SavedRedKeyPositionY"),
-                PlayerPrefs.GetFloat("SavedRedKeyPositionZ")
+                PlayerPrefs.GetFloat("SavedHusbandRedKeyPositionX"),
+                PlayerPrefs.GetFloat("SavedHusbandRedKeyPositionY"),
+                PlayerPrefs.GetFloat("SavedHusbandRedKeyPositionZ")
             );
 
             // get saved rotation for each key
             savedBlueKeyRotation = new Quaternion(
-                PlayerPrefs.GetFloat("SavedBlueKeyRotationX"),
-                PlayerPrefs.GetFloat("SavedBlueKeyRotationY"),
-                PlayerPrefs.GetFloat("SavedBlueKeyRotationZ"),
-                PlayerPrefs.GetFloat("SavedBlueKeyRotationW")
+                PlayerPrefs.GetFloat("SavedHusbandBlueKeyRotationX"),
+                PlayerPrefs.GetFloat("SavedHusbandBlueKeyRotationY"),
+                PlayerPrefs.GetFloat("SavedHusbandBlueKeyRotationZ"),
+                PlayerPrefs.GetFloat("SavedHusbandBlueKeyRotationW")
             );
 
             savedGreenKeyRotation = new Quaternion(
-                PlayerPrefs.GetFloat("SavedGreenKeyRotationX"),
-                PlayerPrefs.GetFloat("SavedGreenKeyRotationY"),
-                PlayerPrefs.GetFloat("SavedGreenKeyRotationZ"),
-                PlayerPrefs.GetFloat("SavedGreenKeyRotationW")
+                PlayerPrefs.GetFloat("SavedHusbandGreenKeyRotationX"),
+                PlayerPrefs.GetFloat("SavedHusbandGreenKeyRotationY"),
+                PlayerPrefs.GetFloat("SavedHusbandGreenKeyRotationZ"),
+                PlayerPrefs.GetFloat("SavedHusbandGreenKeyRotationW")
             );
 
             savedRedKeyRotation = new Quaternion(
-                PlayerPrefs.GetFloat("SavedRedKeyRotationX"),
-                PlayerPrefs.GetFloat("SavedRedKeyRotationY"),
-                PlayerPrefs.GetFloat("SavedRedKeyRotationZ"),
-                PlayerPrefs.GetFloat("SavedRedKeyRotationW")
+                PlayerPrefs.GetFloat("SavedHusbandRedKeyRotationX"),
+                PlayerPrefs.GetFloat("SavedHusbandRedKeyRotationY"),
+                PlayerPrefs.GetFloat("SavedHusbandRedKeyRotationZ"),
+                PlayerPrefs.GetFloat("SavedHusbandRedKeyRotationW")
             );
         } else
         {
@@ -129,36 +129,36 @@ public class InstantiateKeys : MonoBehaviour
 
         // save the position and rotation on all three and four axes
         // blue key
-        PlayerPrefs.SetFloat("SavedBlueKeyPositionX", savedBlueKeyPosition.x);
-        PlayerPrefs.SetFloat("SavedBlueKeyPositionY", savedBlueKeyPosition.y);
-        PlayerPrefs.SetFloat("SavedBlueKeyPositionZ", savedBlueKeyPosition.z);
+        PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionX", savedBlueKeyPosition.x);
+        PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionY", savedBlueKeyPosition.y);
+        PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionZ", savedBlueKeyPosition.z);
 
-        PlayerPrefs.SetFloat("SavedBlueKeyRotationX", savedBlueKeyRotation.x);
-        PlayerPrefs.SetFloat("SavedBlueKeyRotationY", savedBlueKeyRotation.y);
-        PlayerPrefs.SetFloat("SavedBlueKeyRotationZ", savedBlueKeyRotation.z);
-        PlayerPrefs.SetFloat("SavedBlueKeyRotationW", savedBlueKeyRotation.w);
+        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationX", savedBlueKeyRotation.x);
+        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationY", savedBlueKeyRotation.y);
+        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationZ", savedBlueKeyRotation.z);
+        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationW", savedBlueKeyRotation.w);
         PlayerPrefs.Save();
 
         // green key
-        PlayerPrefs.SetFloat("SavedGreenKeyPositionX", savedGreenKeyPosition.x);
-        PlayerPrefs.SetFloat("SavedGreenKeyPositionY", savedGreenKeyPosition.y);
-        PlayerPrefs.SetFloat("SavedGreenKeyPositionZ", savedGreenKeyPosition.z);
+        PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionX", savedGreenKeyPosition.x);
+        PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionY", savedGreenKeyPosition.y);
+        PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionZ", savedGreenKeyPosition.z);
 
-        PlayerPrefs.SetFloat("SavedGreenKeyRotationX", savedGreenKeyRotation.x);
-        PlayerPrefs.SetFloat("SavedGreenKeyRotationY", savedGreenKeyRotation.y);
-        PlayerPrefs.SetFloat("SavedGreenKeyRotationZ", savedGreenKeyRotation.z);
-        PlayerPrefs.SetFloat("SavedGreenKeyRotationW", savedGreenKeyRotation.w);
+        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationX", savedGreenKeyRotation.x);
+        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationY", savedGreenKeyRotation.y);
+        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationZ", savedGreenKeyRotation.z);
+        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationW", savedGreenKeyRotation.w);
         PlayerPrefs.Save();
 
         // red key
-        PlayerPrefs.SetFloat("SavedRedKeyPositionX", savedRedKeyPosition.x);
-        PlayerPrefs.SetFloat("SavedRedKeyPositionY", savedRedKeyPosition.y);
-        PlayerPrefs.SetFloat("SavedRedKeyPositionZ", savedRedKeyPosition.z);
+        PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionX", savedRedKeyPosition.x);
+        PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionY", savedRedKeyPosition.y);
+        PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionZ", savedRedKeyPosition.z);
 
-        PlayerPrefs.SetFloat("SavedRedKeyRotationX", savedRedKeyRotation.x);
-        PlayerPrefs.SetFloat("SavedRedKeyRotationY", savedRedKeyRotation.y);
-        PlayerPrefs.SetFloat("SavedRedKeyRotationZ", savedRedKeyRotation.z);
-        PlayerPrefs.SetFloat("SavedRedKeyRotationW", savedRedKeyRotation.w);
+        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationX", savedRedKeyRotation.x);
+        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationY", savedRedKeyRotation.y);
+        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationZ", savedRedKeyRotation.z);
+        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationW", savedRedKeyRotation.w);
         PlayerPrefs.Save();
     }
 }

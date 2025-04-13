@@ -312,6 +312,37 @@ MonoBehaviour:
   sensitivity: 100
   clampAngle: 80
   crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
+--- !u!1 &3496723773355643945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3037675229081423232}
+  m_Layer: 0
+  m_Name: object grab point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3037675229081423232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496723773355643945}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.525, z: 0.383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7045956981517564711}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7648119831483306437
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +356,7 @@ GameObject:
   - component: {fileID: 1332421381874972612}
   - component: {fileID: 5836803358959464884}
   - component: {fileID: 947705386732904368}
+  - component: {fileID: 7595606425284818459}
   m_Layer: 0
   m_Name: Wife
   m_TagString: Untagged
@@ -348,6 +380,7 @@ Transform:
   - {fileID: 2437134997157341900}
   - {fileID: 3500836407399686144}
   - {fileID: 3399177559622992084}
+  - {fileID: 3037675229081423232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6701094824578269342
@@ -427,6 +460,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slopeRayLength: 1.5
   groundCheckDistance: 0.1
+--- !u!114 &7595606425284818459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648119831483306437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db93980100f8442cacb33b19dd10917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCameraTransform: {fileID: 3500836407399686144}
+  pickupLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  objectGrabPointTransform: {fileID: 3037675229081423232}
 --- !u!1001 &2763178425945492775
 PrefabInstance:
   m_ObjectHideFlags: 0
