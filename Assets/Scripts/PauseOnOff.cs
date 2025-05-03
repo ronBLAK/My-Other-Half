@@ -5,10 +5,18 @@ using UnityEngine;
 
 public class PauseOnOff : MonoBehaviour
 {
+    private InventoryManager inventoryManager;
+    public GameObject inventoryManagerGO;
+
     // Reference to the pause menu GameObject
     public GameObject pauseMenu;
 
     public static bool gamePaused = false; // Flag to track if the game is currently paused
+
+    public void Start()
+    {
+        inventoryManager = inventoryManagerGO.GetComponent<InventoryManager>();
+    }
 
     // Update is called once per frame
     public void Update()
@@ -20,6 +28,7 @@ public class PauseOnOff : MonoBehaviour
             {
                 // Pause the game
                 pauseMenu.SetActive(true); // Show the pause menu
+                inventoryManager.ListItems();
                 Time.timeScale = 0f; // Freeze game time
                 gamePaused = true; // set flag to true
 

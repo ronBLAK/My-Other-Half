@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9464eefe6563d4438bb3c720907dafd0, type: 3}
+  m_Script: {fileID: 11500000, guid: b4936e26c01be451486167dd9acba8fa, type: 3}
   m_Name: RedKey
   m_EditorClassIdentifier: 
-  id: 1
+  id: 2
   itemName: Red Key
-  value: 0
   icon: {fileID: 21300000, guid: 863f41dedec7b41748141d9c255fad23, type: 3}
+  itemObject: {fileID: 130099243017652380, guid: 509ae6908a08042a68f6329644157ae4, type: 3}

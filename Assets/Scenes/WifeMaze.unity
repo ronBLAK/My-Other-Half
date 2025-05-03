@@ -1035,9 +1035,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57de8c428aa7e4d3f86cdc52966c285c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueKey: {fileID: 5115278922124512667, guid: 631f614d662574043b54785546014fc9, type: 3}
-  greenKey: {fileID: 3539069272214089277, guid: 5a0bd0e8474f146239b80df42c97dfc5, type: 3}
-  redKey: {fileID: 7967292743963352361, guid: 02357cc15c7e54b24a0e795dad7e8032, type: 3}
+  blueKey: {fileID: 6828427105354503749, guid: fdbca2ca60bc64db4af7e276017b63dd, type: 3}
+  greenKey: {fileID: 2451240334126499379, guid: db139c0f3834f42e6821bd813065a074, type: 3}
+  redKey: {fileID: 130099243017652380, guid: 509ae6908a08042a68f6329644157ae4, type: 3}
   blueKeySpawnPoint: {fileID: 1521413670}
   greenKeySpawnPoint: {fileID: 740243637}
   redKeySpawnPoint: {fileID: 1219524729}
