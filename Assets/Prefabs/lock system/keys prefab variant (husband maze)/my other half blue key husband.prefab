@@ -183,4 +183,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 832b5bba99c9a4cf4ac344ace211bd67, type: 2}
-  objectToParent: {fileID: 8371993306051663921, guid: e66d1b2b0d9274de38b7e20d7416e0d9, type: 3}
+  player: {fileID: 8371993306051663921, guid: e66d1b2b0d9274de38b7e20d7416e0d9, type: 3}

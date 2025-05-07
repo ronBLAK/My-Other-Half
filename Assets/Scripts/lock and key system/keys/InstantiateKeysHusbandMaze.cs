@@ -19,7 +19,7 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
     public GameObject blueKeySpawnPoint;
     public GameObject greenKeySpawnPoint;
     public GameObject redKeySpawnPoint;
-
+    
     // saved positions for each of the keys
     [Header("Saved Position Vectors for Keys")]
     private Vector3 savedBlueKeyPosition;
@@ -100,9 +100,7 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             savedRedKeyRotation = Quaternion.identity;
         }
 
-        spawnedBlueKey = Instantiate(blueKey, savedBlueKeyPosition, savedBlueKeyRotation);
-        spawnedGreenKey = Instantiate(greenKey, savedGreenKeyPosition, savedGreenKeyRotation);
-        spawnedRedKey = Instantiate(redKey, savedRedKeyPosition, savedRedKeyRotation);
+        SpawnKeys();
 
         // add a listener for for the restart and dontSaveQuitButton button
         restartButton.onClick.AddListener(() => isRestartButtonPressed = true);
@@ -117,48 +115,69 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             return;
         }
 
-        // constant position update
-        savedBlueKeyPosition = spawnedBlueKey.transform.position;
-        savedGreenKeyPosition = spawnedGreenKey.transform.position;
-        savedRedKeyPosition = spawnedRedKey.transform.position;
+        if(spawnedBlueKey != null)
+        {
+            savedBlueKeyPosition = spawnedBlueKey.transform.position; // constant position update blue key
+            savedBlueKeyRotation = spawnedBlueKey.transform.rotation; // constant rotation update blue key
 
-        // constant rotation update
-        savedBlueKeyRotation = spawnedBlueKey.transform.rotation;
-        savedGreenKeyRotation = spawnedGreenKey.transform.rotation;
-        savedRedKeyRotation = spawnedRedKey.transform.rotation;
+            // save the position and rotation on all three and four axes
+            PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionX", savedBlueKeyPosition.x);
+            PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionY", savedBlueKeyPosition.y);
+            PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionZ", savedBlueKeyPosition.z);
 
-        // save the position and rotation on all three and four axes
-        // blue key
-        PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionX", savedBlueKeyPosition.x);
-        PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionY", savedBlueKeyPosition.y);
-        PlayerPrefs.SetFloat("SavedHusbandBlueKeyPositionZ", savedBlueKeyPosition.z);
+            PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationX", savedBlueKeyRotation.x);
+            PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationY", savedBlueKeyRotation.y);
+            PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationZ", savedBlueKeyRotation.z);
+            PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationW", savedBlueKeyRotation.w);
+            PlayerPrefs.Save();
+        } else
+        {
+            Debug.Log("blue key has not been assigned or is in the inventory and has to be dropped from the inventory (respaw the key)");
+        }
+        if(spawnedGreenKey != null)
+        {
+            savedGreenKeyPosition = spawnedGreenKey.transform.position; // constant position update green key
+            savedGreenKeyRotation = spawnedGreenKey.transform.rotation; // constant rotation update green key
+            
+            // save the position and rotation on all three and four axes
+            PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionX", savedGreenKeyPosition.x);
+            PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionY", savedGreenKeyPosition.y);
+            PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionZ", savedGreenKeyPosition.z);
 
-        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationX", savedBlueKeyRotation.x);
-        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationY", savedBlueKeyRotation.y);
-        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationZ", savedBlueKeyRotation.z);
-        PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationW", savedBlueKeyRotation.w);
-        PlayerPrefs.Save();
+            PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationX", savedGreenKeyRotation.x);
+            PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationY", savedGreenKeyRotation.y);
+            PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationZ", savedGreenKeyRotation.z);
+            PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationW", savedGreenKeyRotation.w);
+            PlayerPrefs.Save();
+        } else
+        {
+            Debug.Log("green key has not been assigned or is in the inventory and has to be dropped from the inventory (respaw the key)");
+        }
+        if(spawnedRedKey != null)
+        {
+            savedRedKeyPosition = spawnedRedKey.transform.position; // constant position update red key
+            savedRedKeyRotation = spawnedRedKey.transform.rotation; // constant rotation update red key
 
-        // green key
-        PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionX", savedGreenKeyPosition.x);
-        PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionY", savedGreenKeyPosition.y);
-        PlayerPrefs.SetFloat("SavedHusbandGreenKeyPositionZ", savedGreenKeyPosition.z);
+            // save the position and rotation on all three and four axes
+            PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionX", savedRedKeyPosition.x);
+            PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionY", savedRedKeyPosition.y);
+            PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionZ", savedRedKeyPosition.z);
 
-        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationX", savedGreenKeyRotation.x);
-        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationY", savedGreenKeyRotation.y);
-        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationZ", savedGreenKeyRotation.z);
-        PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationW", savedGreenKeyRotation.w);
-        PlayerPrefs.Save();
+            PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationX", savedRedKeyRotation.x);
+            PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationY", savedRedKeyRotation.y);
+            PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationZ", savedRedKeyRotation.z);
+            PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationW", savedRedKeyRotation.w);
+            PlayerPrefs.Save();
+        } else
+        {
+            Debug.Log("red key has not been assigned or is in the inventory and has to be dropped from the inventory (respaw the key)");
+        } 
+    }
 
-        // red key
-        PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionX", savedRedKeyPosition.x);
-        PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionY", savedRedKeyPosition.y);
-        PlayerPrefs.SetFloat("SavedHusbandRedKeyPositionZ", savedRedKeyPosition.z);
-
-        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationX", savedRedKeyRotation.x);
-        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationY", savedRedKeyRotation.y);
-        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationZ", savedRedKeyRotation.z);
-        PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationW", savedRedKeyRotation.w);
-        PlayerPrefs.Save();
+    public void SpawnKeys()
+    {
+        spawnedBlueKey = Instantiate(blueKey, savedBlueKeyPosition, savedBlueKeyRotation);
+        spawnedGreenKey = Instantiate(greenKey, savedGreenKeyPosition, savedGreenKeyRotation);
+        spawnedRedKey = Instantiate(redKey, savedRedKeyPosition, savedRedKeyRotation);
     }
 }

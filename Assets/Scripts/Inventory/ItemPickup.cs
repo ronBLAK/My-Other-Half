@@ -3,18 +3,15 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public Item item;
-    public GameObject objectToParent;
 
     public void Pickup(Item item)
     {
-        InventoryManager.Instance.Add(item);
-        gameObject.transform.SetParent(objectToParent.transform);
-        gameObject.SetActive(false);
+        InventoryManager.Instance.Add(item); // adds the item into the inventory
+        Destroy(gameObject); // destroys the instance, after its been picked up, ready for respawning when dropped
     }
 
     private void OnMouseDown()
     {
         Pickup(item);
     }
-
 }
