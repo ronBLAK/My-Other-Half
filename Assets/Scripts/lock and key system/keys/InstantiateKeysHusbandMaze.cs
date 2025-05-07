@@ -100,7 +100,9 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             savedRedKeyRotation = Quaternion.identity;
         }
 
-        SpawnKeys();
+        spawnedBlueKey = Instantiate(blueKey, savedBlueKeyPosition, savedBlueKeyRotation);
+        spawnedGreenKey = Instantiate(greenKey, savedGreenKeyPosition, savedGreenKeyRotation);
+        spawnedRedKey = Instantiate(redKey, savedRedKeyPosition, savedRedKeyRotation);
 
         // add a listener for for the restart and dontSaveQuitButton button
         restartButton.onClick.AddListener(() => isRestartButtonPressed = true);
@@ -172,12 +174,5 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
         {
             Debug.Log("red key has not been assigned or is in the inventory and has to be dropped from the inventory (respaw the key)");
         } 
-    }
-
-    public void SpawnKeys()
-    {
-        spawnedBlueKey = Instantiate(blueKey, savedBlueKeyPosition, savedBlueKeyRotation);
-        spawnedGreenKey = Instantiate(greenKey, savedGreenKeyPosition, savedGreenKeyRotation);
-        spawnedRedKey = Instantiate(redKey, savedRedKeyPosition, savedRedKeyRotation);
     }
 }
