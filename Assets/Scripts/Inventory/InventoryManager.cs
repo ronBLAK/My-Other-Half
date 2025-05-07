@@ -28,6 +28,12 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
+        // without this first foreach loop, when the second foreach loop is iterated, it will increase the number of items added to inventory each time inventory is refreshed or new item is added
+        foreach(Transform item in itemContent)
+        {
+            Destroy(item.gameObject);
+        }
+
         foreach(var item in items)
         {
             GameObject obj = Instantiate(inventoryItem, itemContent);

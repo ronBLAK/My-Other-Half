@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4936e26c01be451486167dd9acba8fa, type: 3}
-  m_Name: RedKey
+  m_Name: BlueKeyHusband
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: Red Key
-  icon: {fileID: 21300000, guid: 863f41dedec7b41748141d9c255fad23, type: 3}
-  itemObject: {fileID: 7231415083757469958, guid: 66b41b77c214141e4a7459199b641aee, type: 3}
+  id: 0
+  itemName: Blue Key Husband
+  icon: {fileID: 21300000, guid: 8e85f1ed3d8b54cb9b975b3faa917d1f, type: 3}
+  itemObject: {fileID: 7164091268796905879, guid: 0a28de571edcc46ecb55f5b8027ce3b9, type: 3}
