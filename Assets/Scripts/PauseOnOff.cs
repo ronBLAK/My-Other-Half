@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PauseOnOff : MonoBehaviour
 {
-    private InventoryManager inventoryManager;
-    public GameObject inventoryManagerGO;
+    public GameObject inventoryScrollView;
 
     // Reference to the pause menu GameObject
     public GameObject pauseMenu;
@@ -15,7 +14,7 @@ public class PauseOnOff : MonoBehaviour
 
     public void Start()
     {
-        inventoryManager = inventoryManagerGO.GetComponent<InventoryManager>();
+        //
     }
 
     // Update is called once per frame
@@ -28,7 +27,7 @@ public class PauseOnOff : MonoBehaviour
             {
                 // Pause the game
                 pauseMenu.SetActive(true); // Show the pause menu
-                inventoryManager.ListItems();
+                inventoryScrollView.SetActive(true);
                 Time.timeScale = 0f; // Freeze game time
                 gamePaused = true; // set flag to true
 
@@ -39,6 +38,7 @@ public class PauseOnOff : MonoBehaviour
             else
             {
                 // Resume the game
+                inventoryScrollView.SetActive(false);
                 pauseMenu.SetActive(false); // Hide the pause menu
                 Time.timeScale = 1f; // Resume game time
                 gamePaused = false;

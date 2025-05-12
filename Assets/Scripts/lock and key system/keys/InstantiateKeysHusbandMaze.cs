@@ -134,7 +134,7 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             PlayerPrefs.Save();
         } else
         {
-            Debug.Log("blue key has not been assigned or is in the inventory and has to be dropped from the inventory (respaw the key)");
+            Debug.Log("--b--");
         }
         if(spawnedGreenKey != null)
         {
@@ -153,7 +153,7 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             PlayerPrefs.Save();
         } else
         {
-            Debug.Log("green key has not been assigned or is in the inventory and has to be dropped from the inventory (respaw the key)");
+            Debug.Log("--g--");
         }
         if(spawnedRedKey != null)
         {
@@ -172,7 +172,7 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             PlayerPrefs.Save();
         } else
         {
-            Debug.Log("red key has not been assigned or is in the inventory and has to be dropped from the inventory (respaw the key)");
+            Debug.Log("--r--");
         } 
     }
 }
