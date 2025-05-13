@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class InstantiateKeysWifeMaze : MonoBehaviour
 {
+    public static InstantiateKeysWifeMaze instance; // Static reference, allows access to this script in other scripts
+
     // references to the gameobjects to be spawned
     [Header("Key Prefabs")]
     public GameObject blueKey;
@@ -10,9 +12,12 @@ public class InstantiateKeysWifeMaze : MonoBehaviour
     public GameObject redKey;
 
     // reference to the spawned version of each key
-    private GameObject spawnedBlueKey;
-    private GameObject spawnedGreenKey;
-    private GameObject spawnedRedKey;
+    [HideInInspector]
+    public GameObject spawnedBlueKey;
+    [HideInInspector]
+    public GameObject spawnedGreenKey;
+    [HideInInspector]
+    public GameObject spawnedRedKey;
 
     // reference to the position of GameObject at which eacg key is to be spawned
     [Header("Key Spawn Position GameObjects")]
@@ -41,6 +46,11 @@ public class InstantiateKeysWifeMaze : MonoBehaviour
     [Header("Don't Save")]
     public Button dontSaveQuitButton;
     private bool isDontSaveQuitButtonPressed = false;
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

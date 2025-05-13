@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InstantiateWife : MonoBehaviour
+public class Wife : MonoBehaviour
 {
-    public GameObject player;
-    private GameObject spawnedPlayer;
+    public static Wife instance; // makes this class a singleton
+
+    public GameObject player; // reference to the player
+    private GameObject spawnedPlayer; // the instance of the player that is spawned during runtime
 
     // variables to hold the player 's position and rotation
     private Vector3 savedPositionWife;
@@ -14,14 +16,21 @@ public class InstantiateWife : MonoBehaviour
     public Button restartButton;
     private bool isRestartButtonPressed = false;
 
+    private float distanceInFront;
+
     // holds don't save and quit button
     public Button dontSaveQuitButton;
     private bool isDontSaveQuitButtonPressed = false;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         // gets the saved wife information (if there is one), to be passed into the instantiate method
-        if(PlayerPrefs.HasKey("SavedPosXWife"))
+        if (PlayerPrefs.HasKey("SavedPosXWife"))
         {
             savedPositionWife = new Vector3(
                 PlayerPrefs.GetFloat("SavedPosXWife"),
@@ -35,7 +44,8 @@ public class InstantiateWife : MonoBehaviour
                 PlayerPrefs.GetFloat("SavedRotZWife"),
                 PlayerPrefs.GetFloat("SavedRotWWife")
             );
-        } else
+        }
+        else
         {
             savedPositionWife = Vector3.zero;
             savedRotationWife = Quaternion.identity;
@@ -52,11 +62,11 @@ public class InstantiateWife : MonoBehaviour
     void Update()
     {
         // skips saving player resaving wife's position after its been deleted (prevents the wife from being spawned at same position as the end of the game)
-        if(WifeEndPortalLogic.hasWifeEnteredPortal || isRestartButtonPressed || isDontSaveQuitButtonPressed)
+        if (WifeEndPortalLogic.hasWifeEnteredPortal || isRestartButtonPressed || isDontSaveQuitButtonPressed)
         {
             return;
         }
-        
+
         // constantly updates the saved position and rotation of the wife
         savedPositionWife = spawnedPlayer.transform.position;
         savedRotationWife = spawnedPlayer.transform.rotation;
@@ -72,5 +82,27 @@ public class InstantiateWife : MonoBehaviour
         PlayerPrefs.SetFloat("SavedRotZWife", savedRotationWife.z);
         PlayerPrefs.SetFloat("SavedRotWWife", savedRotationWife.w);
         PlayerPrefs.Save();
+    }
+
+    // methods to handle dropping items out of the inventory (not used in this script), but used in the actual dropping logic (when the items are removed from the inventory). these methods are just declared in the player husband class because they are attributes of the player (drop logic)
+    public void DropBlueKey(GameObject blueKey)
+    {
+        Vector3 dropPosition = player.transform.position + player.transform.forward * distanceInFront; // calculates the position where the key has to be dropped, relative to the player
+
+        InstantiateKeysWifeMaze.instance.spawnedBlueKey = Instantiate(blueKey, dropPosition, Quaternion.identity); // spawns the game object passed into the method at the calculated drop position, and sets it equal to the initial spawnedBlueKey
+    }
+
+    public void DropGreenKey(GameObject greenKey)
+    {
+        Vector3 dropPosition = player.transform.position + player.transform.forward * distanceInFront; // calculates the position where the key has to be dropped, relative to the player
+
+        InstantiateKeysWifeMaze.instance.spawnedGreenKey = Instantiate(greenKey, dropPosition, Quaternion.identity); // spawns the game object passed into the method at the calculated drop position, and sets it equal to the inital spawnedGreenKey
+    }
+
+    public void DropRedKey(GameObject redKey)
+    {
+        Vector3 dropPosition = player.transform.position + player.transform.forward * distanceInFront;
+
+        InstantiateKeysWifeMaze.instance.spawnedRedKey = Instantiate(redKey, dropPosition, Quaternion.identity);
     }
 }
