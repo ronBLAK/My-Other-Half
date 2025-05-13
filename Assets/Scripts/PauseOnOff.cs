@@ -28,6 +28,7 @@ public class PauseOnOff : MonoBehaviour
                 // Pause the game
                 pauseMenu.SetActive(true); // Show the pause menu
                 inventoryScrollView.SetActive(true);
+                InventoryManager.instance.ListItems();
                 Time.timeScale = 0f; // Freeze game time
                 gamePaused = true; // set flag to true
 
