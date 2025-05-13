@@ -1087,16 +1087,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205426969}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2103282913}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205426971
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 205426969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d1ec5a467894c8e85b7708a267d9cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f57f302ff5a0491a827ca8481844d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
@@ -2729,7 +2729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751430279
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6995,7 +6995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a81766dbb02d4c02911153b4d2d9501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryManagerGO: {fileID: 205426969}
+  inventoryScrollView: {fileID: 751430278}
   pauseMenu: {fileID: 157251050}
 --- !u!4 &2050459294
 Transform:
@@ -7247,7 +7247,6 @@ RectTransform:
   - {fileID: 1629976600}
   - {fileID: 1365891142}
   - {fileID: 157251053}
-  - {fileID: 205426970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7831,6 +7830,7 @@ SceneRoots:
   - {fileID: 1713027053}
   - {fileID: 116796118}
   - {fileID: 2103282913}
+  - {fileID: 205426970}
   - {fileID: 970561697}
   - {fileID: 1675721862}
   - {fileID: 841581762}
