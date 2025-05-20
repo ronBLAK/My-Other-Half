@@ -16,7 +16,7 @@ public class Husband : MonoBehaviour
     public Button restartButton;
     private bool isRestartButtonPressed = false;
 
-    private float distanceInFront = 2f; // this is the distance the dropped key will spawn from the player
+    private float distanceInFront = 0.25f; // this is the distance the dropped key will spawn from the player
 
     // holds don't save and quit button
     public Button dontSaveQuitButton;
@@ -87,21 +87,21 @@ public class Husband : MonoBehaviour
     // methods to handle dropping items out of the inventory (not used in this script), but used in the actual dropping logic (when the items are removed from the inventory). these methods are just declared in the player husband class because they are attributes of the player (drop logic)
     public void DropBlueKey(GameObject blueKey)
     {
-        Vector3 dropPosition = player.transform.position + player.transform.forward * distanceInFront; // calculates the position where the key has to be dropped, relative to the player
+        Vector3 dropPosition = spawnedPlayer.transform.position + spawnedPlayer.transform.forward * distanceInFront; // calculates the position where the key has to be dropped, relative to the player
 
         InstantiateKeysHusbandMaze.instance.spawnedBlueKey = Instantiate(blueKey, dropPosition, Quaternion.identity); // spawns the game object passed into the method at the calculated drop position, and sets it equal to the initial spawnedBlueKey
     }
 
     public void DropGreenKey(GameObject greenKey)
     {
-        Vector3 dropPosition = player.transform.position + player.transform.forward * distanceInFront; // calculates the position where the key has to be dropped, relative to the player
+        Vector3 dropPosition = spawnedPlayer.transform.position + spawnedPlayer.transform.forward * distanceInFront; // calculates the position where the key has to be dropped, relative to the player
 
         InstantiateKeysHusbandMaze.instance.spawnedGreenKey = Instantiate(greenKey, dropPosition, Quaternion.identity); // spawns the game object passed into the method at the calculated drop position, and sets it equal to the inital spawnedGreenKey
     }
 
     public void DropRedKey(GameObject redKey)
     {
-        Vector3 dropPosition = player.transform.position + player.transform.forward * distanceInFront;
+        Vector3 dropPosition = spawnedPlayer.transform.position + spawnedPlayer.transform.forward * distanceInFront;
 
         InstantiateKeysHusbandMaze.instance.spawnedRedKey = Instantiate(redKey, dropPosition, Quaternion.identity);
     }
