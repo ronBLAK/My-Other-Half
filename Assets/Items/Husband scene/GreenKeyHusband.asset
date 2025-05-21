@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Green Key
   icon: {fileID: 21300000, guid: b7974a74b4d62400387b0deb75dea6ea, type: 3}
   itemObject: {fileID: 3064690280548313323, guid: 3ac67e29ce09b47c8a4665ed11eaa7f9, type: 3}
+  itemType: 1

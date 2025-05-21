@@ -1128,6 +1128,9 @@ MonoBehaviour:
   blueKey: {fileID: 6828427105354503749, guid: fdbca2ca60bc64db4af7e276017b63dd, type: 3}
   greenKey: {fileID: 2451240334126499379, guid: db139c0f3834f42e6821bd813065a074, type: 3}
   redKey: {fileID: 130099243017652380, guid: 509ae6908a08042a68f6329644157ae4, type: 3}
+  spawnedBlueKey: {fileID: 0}
+  spawnedGreenKey: {fileID: 0}
+  spawnedRedKey: {fileID: 0}
   blueKeySpawnPoint: {fileID: 1521413670}
   greenKeySpawnPoint: {fileID: 740243637}
   redKeySpawnPoint: {fileID: 1219524729}
@@ -1489,8 +1492,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 4fd58c3048be84b30a7f11689b63ce13, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2482,8 +2485,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 4fd58c3048be84b30a7f11689b63ce13, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4783,8 +4786,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d6d309f1c17924d5ca2d49bdb0ac5ee3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6502,8 +6505,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 4fd58c3048be84b30a7f11689b63ce13, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

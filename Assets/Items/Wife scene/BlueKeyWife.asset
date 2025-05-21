@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Blue Key
   icon: {fileID: 21300000, guid: 8e85f1ed3d8b54cb9b975b3faa917d1f, type: 3}
   itemObject: {fileID: 6828427105354503749, guid: fdbca2ca60bc64db4af7e276017b63dd, type: 3}
+  itemType: 3

@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Red Key
   icon: {fileID: 21300000, guid: 863f41dedec7b41748141d9c255fad23, type: 3}
   itemObject: {fileID: 130099243017652380, guid: 509ae6908a08042a68f6329644157ae4, type: 3}
+  itemType: 5
