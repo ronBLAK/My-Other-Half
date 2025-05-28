@@ -230,9 +230,85 @@ public class ButtonManager : MonoBehaviour
         {
             Debug.Log("key does not exist");
         }
+        
+        // key deletetion
+        // husband maze keys deletion
+        if(PlayerPrefs.HasKey("SavedHusbandBlueKeyPositionX"))
+        {
+            // blue key
+            PlayerPrefs.DeleteKey("SavedHusbandBlueKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedHusbandBlueKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedHusbandBlueKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedHusbandBlueKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedHusbandBlueKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedHusbandBlueKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedHusbandBlueKeyRotationW");
+            PlayerPrefs.Save();
+
+            // green key
+            PlayerPrefs.DeleteKey("SavedHusbandGreenKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedHusbandGreenKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedHusbandGreenKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedHusbandGreenKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedHusbandGreenKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedHusbandGreenKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedHusbandGreenKeyRotationW");
+            PlayerPrefs.Save();
+
+            // red key
+            PlayerPrefs.DeleteKey("SavedHusbandRedKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedHusbandRedKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedHusbandRedKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedHusbandRedKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedHusbandRedKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedHusbandRedKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedHusbandRedKeyRotationW");
+            PlayerPrefs.Save();
+        }
+
+        // wife maze keys deletion
+        
+        if(PlayerPrefs.HasKey("SavedWifeBlueKeyPositionX"))
+        {
+            // blue key
+            PlayerPrefs.DeleteKey("SavedWifeBlueKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedWifeBlueKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedWifeBlueKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedWifeBlueKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedWifeBlueKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedWifeBlueKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedWifeBlueKeyRotationW");
+            PlayerPrefs.Save();
+
+            // green key
+            PlayerPrefs.DeleteKey("SavedWifeGreenKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedWifeGreenKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedWifeGreenKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedWifeGreenKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedWifeGreenKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedWifeGreenKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedWifeGreenKeyRotationW");
+            PlayerPrefs.Save();
+
+            // red key
+            PlayerPrefs.DeleteKey("SavedWifeRedKeyPositionX");
+            PlayerPrefs.DeleteKey("SavedWifeRedKeyPositionY");
+            PlayerPrefs.DeleteKey("SavedWifeRedKeyPositionZ");
+
+            PlayerPrefs.DeleteKey("SavedWifeRedKeyRotationX");
+            PlayerPrefs.DeleteKey("SavedWifeRedKeyRotationY");
+            PlayerPrefs.DeleteKey("SavedWifeRedKeyRotationZ");
+            PlayerPrefs.DeleteKey("SavedWifeRedKeyRotationW");
+            PlayerPrefs.Save();
+        }
 
         // seed deletion
-        if(PlayerPrefs.HasKey("Seed"))
+        if (PlayerPrefs.HasKey("Seed"))
         {
             PlayerPrefs.DeleteKey("Seed");
             PlayerPrefs.Save();

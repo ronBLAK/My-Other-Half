@@ -16,7 +16,7 @@ public class Wife : MonoBehaviour
     public Button restartButton;
     private bool isRestartButtonPressed = false;
 
-    private float distanceInFront;
+    private float distanceInFront = 0.25f;
 
     // holds don't save and quit button
     public Button dontSaveQuitButton;
