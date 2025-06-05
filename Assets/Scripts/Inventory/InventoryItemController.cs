@@ -10,6 +10,8 @@ public class InventoryItemController : MonoBehaviour
         InventoryManager.instance.Remove(item); // removes the item from the inventory
 
         Destroy(gameObject); // destroys the item after removal
+
+        InventoryManager.instance.SaveInventory(); // saves the inventory when an item is removed/dropped
     }
 
     public void AddItem(Item newItem)
@@ -19,6 +21,12 @@ public class InventoryItemController : MonoBehaviour
 
     public void DropItem()
     {
+        if (item == null || item.itemObject == null)
+        {
+            Debug.LogWarning("Attempted to drop an item that no longer exists.");
+            return;
+        }
+
         switch (item.itemType)
         {
             case Item.ItemType.BlueKeyHusband:

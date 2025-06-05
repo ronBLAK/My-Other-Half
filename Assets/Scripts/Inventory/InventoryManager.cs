@@ -14,7 +14,14 @@ public class InventoryManager : MonoBehaviour
 
     public Toggle enableRemove; // reference to the toggle that enables the removal of items from the inventory
 
-    private InventoryItemController[] inventoryItems; // list of items in inventory of type inventoryItemController
+    public ItemDatabase itemDatabase; // reference to the item database script
+
+    private InventoryItemController[] inventoryItems; // list of items in inventory of type inventoryItemControllerz
+
+    private void Start()
+    {
+        LoadInventory(itemDatabase);
+    }
 
     public void Awake()
     {
@@ -86,5 +93,57 @@ public class InventoryManager : MonoBehaviour
         {
             inventoryItems[i].AddItem(items[i]);
         }
+    }
+
+    // saves the items list (the items currently held in the inventory, to be tracked and loaded when the scene loads again)
+    public void SaveInventory()
+    {
+        InventorySaveData data = new InventorySaveData();
+        data.itemIDs = items.ConvertAll(item => item.id);
+
+        string json = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString("SavedInventory", json);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadInventory(ItemDatabase itemDatabase)
+    {
+        ItemDatabase database = itemDatabase;
+        items.Clear(); // clears the current inventory
+
+        if (PlayerPrefs.HasKey("SavedInventory"))
+        {
+            string json = PlayerPrefs.GetString("SavedInventory");
+            InventorySaveData data = JsonUtility.FromJson<InventorySaveData>(json);
+
+            foreach (int id in data.itemIDs)
+            {
+                Item foundItem = database.GetItemByID(id);
+                if (foundItem != null)
+                {
+                    items.Add(foundItem);
+                }
+                else
+                {
+                    Debug.LogWarning($"item with {id} not found in database");
+                }
+            }
+        }
+
+        ListItems(); // rebuild UI
+    }
+
+    // bool function to track the existence of different items in the inventory based on the saved and loaded id - to use when determining what item to spawn game objects for and what not to (since it is in the inventory)
+    public bool HasItem(int id)
+    {
+        foreach (var item in items)
+        {
+            if (item.id == id)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

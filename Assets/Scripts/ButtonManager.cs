@@ -307,12 +307,19 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        // seed deletion
-        if (PlayerPrefs.HasKey("Seed"))
+        // inventory deletion
+        if (PlayerPrefs.HasKey("SavedInventory"))
         {
-            PlayerPrefs.DeleteKey("Seed");
+            PlayerPrefs.DeleteKey("SavedInventory");
             PlayerPrefs.Save();
         }
+
+        // seed deletion
+            if (PlayerPrefs.HasKey("Seed"))
+            {
+                PlayerPrefs.DeleteKey("Seed");
+                PlayerPrefs.Save();
+            }
 
         // forwards timer deletion
         if(PlayerPrefs.HasKey("TimerValue"))
