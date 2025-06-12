@@ -6270,7 +6270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minutes: 0
-  seconds: 15
+  seconds: 30
   remainingTime: 0
   timerText: {fileID: 1629976598}
 --- !u!4 &1675721862

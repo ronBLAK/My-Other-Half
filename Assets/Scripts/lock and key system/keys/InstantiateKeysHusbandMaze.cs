@@ -162,9 +162,6 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationZ", savedBlueKeyRotation.z);
             PlayerPrefs.SetFloat("SavedHusbandBlueKeyRotationW", savedBlueKeyRotation.w);
             PlayerPrefs.Save();
-        } else
-        {
-            Debug.Log("--b--");
         }
         if(spawnedGreenKey != null)
         {
@@ -181,9 +178,6 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationZ", savedGreenKeyRotation.z);
             PlayerPrefs.SetFloat("SavedHusbandGreenKeyRotationW", savedGreenKeyRotation.w);
             PlayerPrefs.Save();
-        } else
-        {
-            Debug.Log("--g--");
         }
         if(spawnedRedKey != null)
         {
@@ -200,9 +194,6 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationZ", savedRedKeyRotation.z);
             PlayerPrefs.SetFloat("SavedHusbandRedKeyRotationW", savedRedKeyRotation.w);
             PlayerPrefs.Save();
-        } else
-        {
-            Debug.Log("--r--");
-        } 
+        }
     }
 }
