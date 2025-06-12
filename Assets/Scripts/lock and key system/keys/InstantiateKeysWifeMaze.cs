@@ -47,6 +47,8 @@ public class InstantiateKeysWifeMaze : MonoBehaviour
     public Button dontSaveQuitButton;
     private bool isDontSaveQuitButtonPressed = false;
 
+    public ItemDatabase itemDatabase;
+
     public void Awake()
     {
         instance = this;
@@ -110,9 +112,27 @@ public class InstantiateKeysWifeMaze : MonoBehaviour
             savedRedKeyRotation = Quaternion.identity;
         }
 
-        spawnedBlueKey = Instantiate(blueKey, savedBlueKeyPosition, savedBlueKeyRotation);
-        spawnedGreenKey = Instantiate(greenKey, savedGreenKeyPosition, savedGreenKeyRotation);
-        spawnedRedKey = Instantiate(redKey, savedRedKeyPosition, savedRedKeyRotation);
+        InventoryManagerWife.instance.LoadInventory(itemDatabase); // loads the previously saved inventory at each reload of the scene
+            
+        // the tracks the existence of each item type in inventory, by passing in the id for each item type into the HasItem bool function
+        bool blueKeyInInventory = InventoryManagerWife.instance.HasItem(0);
+        bool greenKeyInInventory = InventoryManagerWife.instance.HasItem(1);
+        bool redKeyInInventory = InventoryManagerWife.instance.HasItem(2);
+
+        if (!blueKeyInInventory)
+        {
+            spawnedBlueKey = Instantiate(blueKey, savedBlueKeyPosition, savedBlueKeyRotation); // spawn the blue key as it is not in inventory currently
+        }
+
+        if (!greenKeyInInventory)
+        {
+            spawnedGreenKey = Instantiate(greenKey, savedGreenKeyPosition, savedGreenKeyRotation); // spawn the green key as it is not in inventory currently
+        }
+
+        if (!redKeyInInventory)
+        {
+            spawnedRedKey = Instantiate(redKey, savedRedKeyPosition, savedRedKeyRotation); // spawn the red key as it is not in inventory currently
+        }
 
         // add a listener for for the restart and dontSaveQuitButton button
         restartButton.onClick.AddListener(() => isRestartButtonPressed = true);
@@ -122,7 +142,7 @@ public class InstantiateKeysWifeMaze : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(HusbandEndPortalLogic.hasHusbandEnteredPortal || isRestartButtonPressed || isDontSaveQuitButtonPressed)
+        if(HusbandEndPortalLogic.hasHusbandEnteredPortal || isRestartButtonPressed || isDontSaveQuitButtonPressed) //nigga
         {
             return;
         }

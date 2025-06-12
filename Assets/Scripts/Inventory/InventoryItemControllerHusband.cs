@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryItemController : MonoBehaviour
+public class InventoryItemControllerHusband : MonoBehaviour
 {
     Item item; // reference to the item script
 
     public void RemoveItem()
     {
-        InventoryManager.instance.Remove(item); // removes the item from the inventory
+        InventoryManagerHusband.instance.Remove(item); // removes the item from the inventory
 
         Destroy(gameObject); // destroys the item after removal
 
-        InventoryManager.instance.SaveInventory(); // saves the inventory when an item is removed/dropped
+        InventoryManagerHusband.instance.SaveInventory(); // saves the inventory when an item is removed/dropped
     }
 
     public void AddItem(Item newItem)
@@ -39,18 +39,6 @@ public class InventoryItemController : MonoBehaviour
 
             case Item.ItemType.RedKeyHusband:
                 Husband.instance.DropRedKey(item.itemObject);
-                break;
-
-            case Item.ItemType.BlueKeyWife:
-                Wife.instance.DropBlueKey(item.itemObject);
-                break;
-
-            case Item.ItemType.GreenKeyWife:
-                Wife.instance.DropGreenKey(item.itemObject);
-                break;
-
-            case Item.ItemType.RedKeyWife:
-                Wife.instance.DropRedKey(item.itemObject);
                 break;
         }
 

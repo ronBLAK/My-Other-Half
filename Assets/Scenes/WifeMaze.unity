@@ -1238,6 +1238,7 @@ MonoBehaviour:
   redKeySpawnPoint: {fileID: 1219524729}
   restartButton: {fileID: 319536257}
   dontSaveQuitButton: {fileID: 251631296}
+  itemDatabase: {fileID: 11400000, guid: 3806c294318e24ed6be7041702a74af6, type: 2}
 --- !u!1 &251631294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,7 +2751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683655379}
-  - component: {fileID: 683655378}
+  - component: {fileID: 683655380}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -2758,20 +2759,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &683655378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683655377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a81766dbb02d4c02911153b4d2d9501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryScrollView: {fileID: 1182937632}
-  pauseMenu: {fileID: 1690172142}
 --- !u!4 &683655379
 Transform:
   m_ObjectHideFlags: 0
@@ -2787,6 +2774,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683655380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683655377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e9cb0d0976945e8adad6008713d05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryScrollView: {fileID: 1182937632}
+  pauseMenu: {fileID: 1690172142}
 --- !u!1 &686173635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2993,7 +2994,6 @@ RectTransform:
   - {fileID: 358323189}
   - {fileID: 615295928}
   - {fileID: 1690172145}
-  - {fileID: 883750286}
   - {fileID: 1565409668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3711,11 +3711,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 686801332}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883750287
@@ -3727,13 +3727,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 883750285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f57f302ff5a0491a827ca8481844d2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 43b37fcbf5bdc4e7bb7deea07b05958d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
   itemContent: {fileID: 2014364865}
   inventoryItem: {fileID: 2822739666189093056, guid: 2100f0863719d412bbcc9872bf83f58f, type: 3}
   enableRemove: {fileID: 1386993459}
+  itemDatabase: {fileID: 11400000, guid: 3806c294318e24ed6be7041702a74af6, type: 2}
 --- !u!1 &947679851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6832,7 +6833,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 686801333}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: ResumeWife
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8290,6 +8291,7 @@ SceneRoots:
   - {fileID: 1583965324}
   - {fileID: 229475577}
   - {fileID: 686801332}
+  - {fileID: 883750286}
   - {fileID: 1662437566}
   - {fileID: 1917889475}
   - {fileID: 1224784007}

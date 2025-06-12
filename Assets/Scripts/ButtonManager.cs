@@ -21,12 +21,23 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("HomeScene");
     }
 
-    public void Resume()
+    public void ResumeHusband()
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        PauseOnOff.gamePaused = false;
+        PauseOnOffHusband.gamePaused = false;
+        
+        GameObject pauseMenu = GameObject.Find("pause menu");
+        pauseMenu.SetActive(false);
+    }
+    
+    public void ResumeWife()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        PauseOnOffWife.gamePaused = false;
         
         GameObject pauseMenu = GameObject.Find("pause menu");
         pauseMenu.SetActive(false);
@@ -37,7 +48,7 @@ public class ButtonManager : MonoBehaviour
     {
         // deletes all the saved data positional and rotational data to restart the game in the same maze, but from the start of the maze
         // husband deletion
-        if(PlayerPrefs.HasKey("SavedPosXHusband"))
+        if (PlayerPrefs.HasKey("SavedPosXHusband"))
         {
             Debug.Log("key does exist and is about to be deleted");
 
@@ -53,13 +64,14 @@ public class ButtonManager : MonoBehaviour
 
             PlayerPrefs.Save();
             Debug.Log("husband keys deleted successfully");
-        } else
+        }
+        else
         {
             Debug.Log("husband key does not exist");
         }
 
         // wife deletion
-        if(PlayerPrefs.HasKey("SavedPosXWife"))
+        if (PlayerPrefs.HasKey("SavedPosXWife"))
         {
             Debug.Log("key does exist and is about to be deleted");
 
@@ -76,14 +88,15 @@ public class ButtonManager : MonoBehaviour
 
             PlayerPrefs.Save();
             Debug.Log("wife keys deleted successfully");
-        } else
+        }
+        else
         {
             Debug.Log("wife key does not exist");
         }
 
         // key deletetion
         // husband maze keys deletion
-        if(PlayerPrefs.HasKey("SavedHusbandBlueKeyPositionX"))
+        if (PlayerPrefs.HasKey("SavedHusbandBlueKeyPositionX"))
         {
             // blue key
             PlayerPrefs.DeleteKey("SavedHusbandBlueKeyPositionX");
@@ -120,8 +133,8 @@ public class ButtonManager : MonoBehaviour
         }
 
         // wife maze keys deletion
-        
-        if(PlayerPrefs.HasKey("SavedWifeBlueKeyPositionX"))
+
+        if (PlayerPrefs.HasKey("SavedWifeBlueKeyPositionX"))
         {
             // blue key
             PlayerPrefs.DeleteKey("SavedWifeBlueKeyPositionX");
@@ -157,8 +170,22 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
+        // delete husband inventory save data
+        if (PlayerPrefs.HasKey("SavedInventoryHusband"))
+        {
+            PlayerPrefs.DeleteKey("SavedInventoryHusband");
+            PlayerPrefs.Save();
+        }
+
+        // delete wife inventory save data
+        if (PlayerPrefs.HasKey("SavedInventoryWife"))
+        {
+            PlayerPrefs.DeleteKey("SavedInventoryWife");
+            PlayerPrefs.Save();
+        }
+
         // timer value deletion
-        if(PlayerPrefs.HasKey("TimerValue"))
+        if (PlayerPrefs.HasKey("TimerValue"))
         {
             PlayerPrefs.DeleteKey("TimerValue");
             PlayerPrefs.Save();
@@ -307,19 +334,26 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        // inventory deletion
-        if (PlayerPrefs.HasKey("SavedInventory"))
+        // husband inventory save data deletion
+        if (PlayerPrefs.HasKey("SavedInventoryHusband"))
         {
-            PlayerPrefs.DeleteKey("SavedInventory");
+            PlayerPrefs.DeleteKey("SavedInventoryHusband");
+            PlayerPrefs.Save();
+        }
+
+        // wife inventory save data deletion
+        if (PlayerPrefs.HasKey("SavedInventoryWife"))
+        {
+            PlayerPrefs.DeleteKey("SavedInventoryWife");
             PlayerPrefs.Save();
         }
 
         // seed deletion
-            if (PlayerPrefs.HasKey("Seed"))
-            {
-                PlayerPrefs.DeleteKey("Seed");
-                PlayerPrefs.Save();
-            }
+        if (PlayerPrefs.HasKey("Seed"))
+        {
+            PlayerPrefs.DeleteKey("Seed");
+            PlayerPrefs.Save();
+        }
 
         // forwards timer deletion
         if(PlayerPrefs.HasKey("TimerValue"))

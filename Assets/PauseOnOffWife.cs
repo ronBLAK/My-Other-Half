@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseOnOff : MonoBehaviour
+public class PauseOnOffWife : MonoBehaviour
 {
     public GameObject inventoryScrollView;
 
@@ -28,7 +28,7 @@ public class PauseOnOff : MonoBehaviour
                 // Pause the game
                 pauseMenu.SetActive(true); // Show the pause menu
                 inventoryScrollView.SetActive(true);
-                InventoryManager.instance.ListItems();
+                InventoryManagerWife.instance.ListItems();
                 Time.timeScale = 0f; // Freeze game time
                 gamePaused = true; // set flag to true
 

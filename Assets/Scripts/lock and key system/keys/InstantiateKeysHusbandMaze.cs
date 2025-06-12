@@ -112,12 +112,12 @@ public class InstantiateKeysHusbandMaze : MonoBehaviour
             savedRedKeyRotation = Quaternion.identity;
         }
 
-        InventoryManager.instance.LoadInventory(itemDatabase); // loads the previously saved inventory at each reload of the scene
+        InventoryManagerHusband.instance.LoadInventory(itemDatabase); // loads the previously saved inventory at each reload of the scene
             
         // the tracks the existence of each item type in inventory, by passing in the id for each item type into the HasItem bool function
-        bool blueKeyInInventory = InventoryManager.instance.HasItem(0);
-        bool greenKeyInInventory = InventoryManager.instance.HasItem(1);
-        bool redKeyInInventory = InventoryManager.instance.HasItem(2);
+        bool blueKeyInInventory = InventoryManagerHusband.instance.HasItem(0);
+        bool greenKeyInInventory = InventoryManagerHusband.instance.HasItem(1);
+        bool redKeyInInventory = InventoryManagerHusband.instance.HasItem(2);
 
         if (!blueKeyInInventory)
         {

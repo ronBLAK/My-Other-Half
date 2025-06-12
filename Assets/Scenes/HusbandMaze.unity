@@ -555,6 +555,7 @@ MonoBehaviour:
   redKeySpawnPoint: {fileID: 752169289}
   restartButton: {fileID: 2140968863}
   dontSaveQuitButton: {fileID: 31356005}
+  itemDatabase: {fileID: 11400000, guid: 0a190e4a177194913b9f774dac39ca55, type: 2}
 --- !u!224 &141283760 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7303879737833018671, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
@@ -1118,6 +1119,7 @@ MonoBehaviour:
   itemContent: {fileID: 149541022}
   inventoryItem: {fileID: 2822739666189093056, guid: 2100f0863719d412bbcc9872bf83f58f, type: 3}
   enableRemove: {fileID: 495505382}
+  itemDatabase: {fileID: 11400000, guid: 0a190e4a177194913b9f774dac39ca55, type: 2}
 --- !u!1 &208398558
 GameObject:
   m_ObjectHideFlags: 0
@@ -5601,7 +5603,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2103282914}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: ResumeHusband
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

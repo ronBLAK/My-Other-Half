@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class InventorySaveData
+public class HusbandInventorySaveData
 {
     public List<int> itemIDs;
 }
