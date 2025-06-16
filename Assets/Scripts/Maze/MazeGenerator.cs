@@ -15,6 +15,8 @@ public class MazeGenerator : MonoBehaviour
 
     private MazeCell[,] mazeGrid; // holds the maze grid
 
+    [SerializeField] private GameObject mazeCellHolder;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +40,7 @@ public class MazeGenerator : MonoBehaviour
             for (int z = 0; z < mazeDepth; z++)
             {
                 mazeGrid[x, z] = Instantiate(mazeCellPrefab, new Vector3(x, 0, z), Quaternion.identity);
+                mazeGrid[x, z].transform.SetParent(mazeCellHolder.transform);
             }
         }
 

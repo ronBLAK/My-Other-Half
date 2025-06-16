@@ -502,6 +502,7 @@ MonoBehaviour:
   mazeCellPrefab: {fileID: 201192110699080615, guid: 8f1ce376b2cbb46a5becdc8dd12b7e7d, type: 3}
   mazeWidth: 20
   mazeDepth: 20
+  mazeCellHolder: {fileID: 283148696}
 --- !u!4 &116796118
 Transform:
   m_ObjectHideFlags: 0
@@ -1336,6 +1337,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216500076}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &283148696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283148697}
+  m_Layer: 0
+  m_Name: maze cell holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283148697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283148696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &369377545
 GameObject:
   m_ObjectHideFlags: 0
@@ -6269,7 +6301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764a494ec77d248b7b038ec0c8d12457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 0
+  minutes: 1
   seconds: 30
   remainingTime: 0
   timerText: {fileID: 1629976598}
@@ -8312,3 +8344,4 @@ SceneRoots:
   - {fileID: 670054784}
   - {fileID: 418195831}
   - {fileID: 752169290}
+  - {fileID: 283148697}

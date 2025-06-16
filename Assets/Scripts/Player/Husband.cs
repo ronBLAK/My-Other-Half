@@ -16,11 +16,11 @@ public class Husband : MonoBehaviour
     public Button restartButton;
     private bool isRestartButtonPressed = false;
 
-    private float distanceInFront = 0.25f; // this is the distance the dropped key will spawn from the player
-
     // holds don't save and quit button
     public Button dontSaveQuitButton;
     private bool isDontSaveQuitButtonPressed = false;
+
+    private float distanceInFront = 0.25f; // this is the distance the dropped key will spawn from the player
 
     private void Awake()
     {
