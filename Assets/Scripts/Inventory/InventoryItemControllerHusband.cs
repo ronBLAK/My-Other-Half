@@ -21,26 +21,41 @@ public class InventoryItemControllerHusband : MonoBehaviour
 
     public void DropItem()
     {
-        if (item == null || item.itemObject == null)
+        if (item == null)
         {
-            Debug.LogWarning("Attempted to drop an item that no longer exists.");
+            Debug.LogWarning("attempted to drop an item when the item was null");
             return;
+        }
+        else if (item.itemObject == null)
+        {
+            Debug.LogWarning("attempted to drop an item when the item object was null");
         }
 
         switch (item.itemType)
-        {
-            case Item.ItemType.BlueKeyHusband:
-                Husband.instance.DropBlueKey(item.itemObject);
-                break;
+            {
+                case Item.ItemType.BlueKeyHusband:
+                    Husband.instance.DropBlueKey(item.itemObject);
+                    break;
 
-            case Item.ItemType.GreenKeyHusband:
-                Husband.instance.DropGreenKey(item.itemObject);
-                break;
+                case Item.ItemType.GreenKeyHusband:
+                    Husband.instance.DropGreenKey(item.itemObject);
+                    break;
 
-            case Item.ItemType.RedKeyHusband:
-                Husband.instance.DropRedKey(item.itemObject);
-                break;
-        }
+                case Item.ItemType.RedKeyHusband:
+                    Husband.instance.DropRedKey(item.itemObject);
+                    break;
+                case Item.ItemType.BlueKeyWife:
+                    Wife.instance.DropBlueKey(item.itemObject);
+                    break;
+
+                case Item.ItemType.GreenKeyWife:
+                    Wife.instance.DropGreenKey(item.itemObject);
+                    break;
+
+                case Item.ItemType.RedKeyWife:
+                    Wife.instance.DropRedKey(item.itemObject);
+                    break;
+            }
 
         RemoveItem();
     }

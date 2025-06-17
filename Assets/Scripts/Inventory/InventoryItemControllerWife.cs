@@ -29,6 +29,17 @@ public class InventoryItemControllerWife : MonoBehaviour
 
         switch (item.itemType)
         {
+            case Item.ItemType.BlueKeyHusband:
+                Husband.instance.DropBlueKey(item.itemObject);
+                break;
+
+            case Item.ItemType.GreenKeyHusband:
+                Husband.instance.DropGreenKey(item.itemObject);
+                break;
+
+            case Item.ItemType.RedKeyHusband:
+                Husband.instance.DropRedKey(item.itemObject);
+                break;
             case Item.ItemType.BlueKeyWife:
                 Wife.instance.DropBlueKey(item.itemObject);
                 break;

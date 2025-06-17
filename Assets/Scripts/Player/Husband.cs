@@ -22,6 +22,8 @@ public class Husband : MonoBehaviour
 
     private float distanceInFront = 0.25f; // this is the distance the dropped key will spawn from the player
 
+    public GameObject SpawnedPlayer => spawnedPlayer;
+
     private void Awake()
     {
         instance = this;

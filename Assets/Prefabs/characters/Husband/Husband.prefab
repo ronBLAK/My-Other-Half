@@ -62,37 +62,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2740828025767582251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3401697134658107070
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2380175589471786744}
-  m_Layer: 0
-  m_Name: camera spawn point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2380175589471786744
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3401697134658107070}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.15685074, y: -0.0020759753, z: 0.00032970676, w: 0.9876202}
-  m_LocalPosition: {x: 0.000054111257, y: 0.54945, z: -0.03333}
-  m_LocalScale: {x: 0.078870006, y: 0.07887, z: 0.07887}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2740828025767582251}
-  m_LocalEulerAnglesHint: {x: 80, y: -180, z: 0}
 --- !u!1 &5710002101407455671
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1932982836459085918
 Transform:
   m_ObjectHideFlags: 0
@@ -419,7 +388,6 @@ GameObject:
   - component: {fileID: 4204871602424076448}
   - component: {fileID: 5784984821971866096}
   - component: {fileID: -8113852482487257146}
-  - component: {fileID: 5065703246334910339}
   m_Layer: 0
   m_Name: Husband
   m_TagString: Untagged
@@ -445,7 +413,6 @@ Transform:
   - {fileID: 1908601908749765499}
   - {fileID: 6150635051303825260}
   - {fileID: 4692200120097282584}
-  - {fileID: 2380175589471786744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7796468552051239600
@@ -542,19 +509,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   objectGrabPointTransform: {fileID: 4692200120097282584}
---- !u!114 &5065703246334910339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8371993306051663921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac2367a4293a46f3997c58b6f24c456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstPersonCameraInstantiationPoint: {fileID: 3401697134658107070}
 --- !u!1001 &2158928668982045840
 PrefabInstance:
   m_ObjectHideFlags: 0
