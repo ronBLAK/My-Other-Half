@@ -59,7 +59,7 @@ public class InventoryManagerHusband : MonoBehaviour
             itemIcon.sprite = item.icon; // sets the icon of the item in inventory to item icon from scriptable object
 
             InventoryItemControllerHusband controller = obj.GetComponent<InventoryItemControllerHusband>();
-            controller.AddItem(item); // 💥 Ensure the item is assigned here!
+            controller.AddItem(item); // adds the item back into the inventory to prevent item == null errors
 
             if (enableRemove.isOn)
             {
@@ -91,11 +91,6 @@ public class InventoryManagerHusband : MonoBehaviour
     public void SetInventoryItems()
     {
         inventoryItems = itemContent.GetComponentsInChildren<InventoryItemControllerHusband>(); // loops through all the items in the list and gets the items' InventoryItemController script attached to them
-
-        for (int i = 0; i < items.Count; i++)
-        {
-            inventoryItems[i].AddItem(items[i]);
-        }
     }
 
     // saves the items list (the items currently held in the inventory, to be tracked and loaded when the scene loads again)
