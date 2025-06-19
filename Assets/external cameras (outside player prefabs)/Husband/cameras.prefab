@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4007397469870441167}
   - component: {fileID: 5292444707408288123}
   - component: {fileID: 2842608387187704517}
+  - component: {fileID: 4910308328186250332}
   m_Layer: 0
   m_Name: tpc
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6329293005612693969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: -0.297}
+  m_LocalPosition: {x: 0, y: 0.259, z: -0.746}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,13 +151,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53d99bdc7b494744ab7d0c8fa035fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 2740828025767582251, guid: e66d1b2b0d9274de38b7e20d7416e0d9, type: 3}
   thirdPersonCamera: {fileID: 3503495455978711056}
   firstPersonCamera: {fileID: 6555449028979312146}
   camerasHolder: {fileID: 5446458664704606879}
   sensitivity: 100
   clampAngle: 80
   crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
+--- !u!114 &4910308328186250332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329293005612693969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9ee6af7fb3d405983a622e48b8a2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseLook: {fileID: 2842608387187704517}
+  tpc: {fileID: 3503495455978711056}
+  fpc: {fileID: 6555449028979312146}
 --- !u!1 &7783306836852765675
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +218,7 @@ GameObject:
   - component: {fileID: 2124641889457288801}
   - component: {fileID: 4042772600276048372}
   - component: {fileID: 2328901873449087361}
+  - component: {fileID: 3784215402322185405}
   m_Layer: 0
   m_Name: fpc
   m_TagString: Untagged
@@ -340,10 +356,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53d99bdc7b494744ab7d0c8fa035fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 2740828025767582251, guid: e66d1b2b0d9274de38b7e20d7416e0d9, type: 3}
   thirdPersonCamera: {fileID: 3503495455978711056}
   firstPersonCamera: {fileID: 6555449028979312146}
   camerasHolder: {fileID: 5446458664704606879}
   sensitivity: 100
   clampAngle: 80
   crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
+--- !u!114 &3784215402322185405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8899832516528066357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9ee6af7fb3d405983a622e48b8a2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseLook: {fileID: 2328901873449087361}
+  tpc: {fileID: 3503495455978711056}
+  fpc: {fileID: 6555449028979312146}
