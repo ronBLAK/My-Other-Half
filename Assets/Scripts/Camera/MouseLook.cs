@@ -1,15 +1,16 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
     // Reference to the player's body object to rotate horizontally
-    public Transform playerBody;
+    private Transform playerBody;
     // Reference to the third person camera
     public Transform thirdPersonCamera;
     // Reference to the first person camera
     public Transform firstPersonCamera;
+    // reference to the transform of the gameObject that holds both the cameras
+    public Transform camerasHolder;
     // Mouse sensitivity for camera movement
     public float sensitivity = 100f;
     // Maximum angle to look up and down
@@ -22,6 +23,8 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
+        playerBody = Husband.instance.GetSpawnedPlayer().transform;
+
         // Lock the cursor to the center of the screen and hide it
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -44,6 +47,7 @@ public class MouseLook : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
         // Rotate the player's body horizontally based on mouse input
+        camerasHolder.Rotate(Vector3.up * mouseX);
         playerBody.Rotate(Vector3.up * mouseX);
 
         // Update and clamp the vertical rotation of the camera
