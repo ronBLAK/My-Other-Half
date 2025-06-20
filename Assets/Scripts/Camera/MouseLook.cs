@@ -4,9 +4,10 @@ using UnityEngine.UI;
 public class MouseLook : MonoBehaviour
 {
     private Transform playerBody; // Reference to the player's body object to rotate horizontally
-    public Transform thirdPersonCamera; // Reference to the third person camera
-    public Transform firstPersonCamera; // Reference to the first person camera
-    public Transform camerasHolder; // reference to the transform of the gameObject that holds both the cameras
+    private Transform thirdPersonCamera; // Reference to the third person camera
+    private Transform firstPersonCameraHolder; // reference to the transform of the gameObject that holds both the cameras
+    private Transform firstPersonCamera; // Reference to the first person camera
+    
     public float sensitivity = 100f; // Mouse sensitivity for camera movement
     public float clampAngle = 80f; // Maximum angle to look up and down
 
@@ -17,7 +18,13 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
+        // setting of third person camera and its holder (playerBody)
         playerBody = Husband.instance.GetSpawnedPlayer().transform;
+        thirdPersonCamera = playerBody.transform.Find("ThirdPersonCamera");
+
+        // setting of first person camera and its holder (firstPersonCameraHolder)
+        firstPersonCameraHolder = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+        firstPersonCamera = firstPersonCameraHolder.transform.Find("FirstPersonCamera");
 
         // Lock the cursor to the center of the screen and hide it
         Cursor.lockState = CursorLockMode.Locked;
@@ -41,7 +48,7 @@ public class MouseLook : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
         
         // Rotate the camer and player when in first-person mode
-        camerasHolder.Rotate(Vector3.up * mouseX);
+        firstPersonCameraHolder.Rotate(Vector3.up * mouseX);
         playerBody.Rotate(Vector3.up * mouseX);
 
         // Update and clamp the vertical rotation of the camera

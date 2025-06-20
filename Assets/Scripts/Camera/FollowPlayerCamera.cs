@@ -2,33 +2,28 @@ using UnityEngine;
 
 public class FollowPlayerCamera : MonoBehaviour
 {
-    public MouseLook mouseLook; // Reference to the MouseLook script
-
-    public Transform tpc; // reference to the third person controller
-    public Transform fpc; // reference to the first person controller
-
-    [Header("Target to follow")]
+    private Transform firstPersonCamera; // reference to the first person camera
     private Transform playerTransform; // reference to the player's transform
-
-    [Header("Offset from the player")]
-    private Vector3 tpcOffset;
+    private Transform firstPersonCameraHolder; // reference to the first person camera holder
     private Vector3 fpcOffset;
 
     public void Start()
     {
-        playerTransform = Husband.instance.GetSpawnedPlayer().transform;
+        playerTransform = Husband.instance.GetSpawnedPlayer().transform; // get the player's transform
 
-        fpcOffset = new Vector3(0f, 0.75f, playerTransform.position.z - fpc.position.z);
-        tpcOffset = new Vector3(0f, 0.63f, playerTransform.position.z - tpc.position.z);
+        // get the first person camera and holder, and finds the first person camera from its parent holder
+        firstPersonCameraHolder = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+        firstPersonCamera = firstPersonCameraHolder.Find("FirstPersonCamera");
+
+        fpcOffset = new Vector3(0f, 0.75f, playerTransform.position.z - firstPersonCamera.position.z); // sets the off
     }
 
     private void LateUpdate()
     {
         if (playerTransform != null)
         {
-            // Only follow position, no rotation
-            tpc.position = playerTransform.position + tpcOffset;
-            fpc.position = playerTransform.position + fpcOffset;
+            // first person camera follows the player
+            firstPersonCamera.position = playerTransform.position + fpcOffset;
         }
     }
 }
