@@ -46,10 +46,10 @@ public class MouseLook : MonoBehaviour
         // Get mouse input for camera rotation
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-        
-        // Rotate the camer and player when in first-person mode
-        firstPersonCameraHolder.Rotate(Vector3.up * mouseX);
+
+        // Rotate the camera and player when in first-person mode
         playerBody.Rotate(Vector3.up * mouseX);
+        firstPersonCameraHolder.rotation = Husband.instance.GetSavedHusbandRotation();
 
         // Update and clamp the vertical rotation of the camera
         verticalRotation -= mouseY;
