@@ -8,7 +8,7 @@ public class FollowPlayerCamera : MonoBehaviour
     public Transform fpc; // reference to the first person controller
 
     [Header("Target to follow")]
-    private Transform playerTransform;
+    private Transform playerTransform; // reference to the player's transform
 
     [Header("Offset from the player")]
     private Vector3 tpcOffset;

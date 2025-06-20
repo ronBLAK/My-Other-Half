@@ -67,35 +67,6 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = walkSpeed;
         }
 
-        // allows the player to look at the direction they are moving in, and adds a cap to how much they can turn when s/arrow down keys are pressed
-        if (movementDirection != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
-
-            // Detect if the back key (S or down arrow) is the only input
-            bool movingBackwardOnly = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-
-            if (movingBackwardOnly)
-            {
-                // Calculate the angle between current forward and target
-                float angle = Quaternion.Angle(transform.rotation, targetRotation);
-
-                // Limit rotation if angle is greater than 180 (it shouldn't be, but we keep this just in case)
-                if (angle > 180f)
-                {
-                    angle = 180f;
-                }
-
-                // Clamp rotation to at most 180 degrees by rotating more slowly
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Mathf.Min(angle, 180f) * Time.deltaTime * 2f);
-            }
-            else
-            {
-                // Normal smooth turning
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
-            }
-        }
-
         // Calculate and apply movement based on input and current speed
         Vector3 movement = movementDirection * currentSpeed * Time.deltaTime;
         playerCharacterController.Move(movement);

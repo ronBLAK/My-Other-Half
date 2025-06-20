@@ -3,18 +3,12 @@ using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
-    // Reference to the player's body object to rotate horizontally
-    private Transform playerBody;
-    // Reference to the third person camera
-    public Transform thirdPersonCamera;
-    // Reference to the first person camera
-    public Transform firstPersonCamera;
-    // reference to the transform of the gameObject that holds both the cameras
-    public Transform camerasHolder;
-    // Mouse sensitivity for camera movement
-    public float sensitivity = 100f;
-    // Maximum angle to look up and down
-    public float clampAngle = 80f;
+    private Transform playerBody; // Reference to the player's body object to rotate horizontally
+    public Transform thirdPersonCamera; // Reference to the third person camera
+    public Transform firstPersonCamera; // Reference to the first person camera
+    public Transform camerasHolder; // reference to the transform of the gameObject that holds both the cameras
+    public float sensitivity = 100f; // Mouse sensitivity for camera movement
+    public float clampAngle = 80f; // Maximum angle to look up and down
 
     private float verticalRotation = 0f; // Current vertical rotation angle
     private bool isFirstPerson = false; // Flag to track if the camera is in first-person mode
@@ -45,8 +39,8 @@ public class MouseLook : MonoBehaviour
         // Get mouse input for camera rotation
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-        // Rotate the player's body horizontally based on mouse input
+        
+        // Rotate the camer and player when in first-person mode
         camerasHolder.Rotate(Vector3.up * mouseX);
         playerBody.Rotate(Vector3.up * mouseX);
 

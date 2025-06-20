@@ -243,10 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53d99bdc7b494744ab7d0c8fa035fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 2740828025767582251}
   thirdPersonCamera: {fileID: 1932982836459085918}
   firstPersonCamera: {fileID: 5478392518016378120}
-  camerasHolder: {fileID: 0}
+  camerasHolder: {fileID: 5446458664704606879, guid: 5dc1f24d1ba184437927af3ac3221df6, type: 3}
   sensitivity: 100
   clampAngle: 80
   crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
@@ -400,7 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53d99bdc7b494744ab7d0c8fa035fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 2740828025767582251}
   thirdPersonCamera: {fileID: 1932982836459085918}
   firstPersonCamera: {fileID: 5478392518016378120}
   camerasHolder: {fileID: 0}
