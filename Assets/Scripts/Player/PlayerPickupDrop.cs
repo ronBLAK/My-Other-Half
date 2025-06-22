@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class PlayerPickUpDrop : MonoBehaviour
 {
-    [SerializeField] private Transform playerCameraTransform; // Reference to the player's camera for raycasting
+    private Transform playerCameraTransform; // Reference to the player's camera for raycasting
     [SerializeField] private LayerMask pickupLayerMask; // Layer mask to filter which objects can be picked up
     [SerializeField] private Transform objectGrabPointTransform; // Point where the object will be held
 
     private ObjectGrabbable objectGrabbable; // Reference to the currently grabbable object
+
+    private void Start()
+    {
+        playerCameraTransform = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+    }
 
     private void Update()
     {
@@ -38,6 +43,7 @@ public class PlayerPickUpDrop : MonoBehaviour
                 // Currently carrying an object, drop it
                 objectGrabbable.Drop();
                 objectGrabbable = null; // Clear the reference after dropping
+                Debug.Log("Object has been dropped (gameObject no longer held by player), or has not been picked up in the first place (nothing happens)");
             }
         }
     }
