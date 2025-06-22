@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerPickUpDrop : MonoBehaviour
 {
     private Transform playerCameraTransform; // Reference to the player's camera for raycasting
+    private Transform playerCameraHolder; // reference to the GameObject holding the
     [SerializeField] private LayerMask pickupLayerMask; // Layer mask to filter which objects can be picked up
     [SerializeField] private Transform objectGrabPointTransform; // Point where the object will be held
 
@@ -13,7 +14,8 @@ public class PlayerPickUpDrop : MonoBehaviour
 
     private void Start()
     {
-        playerCameraTransform = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+        playerCameraHolder = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+        playerCameraTransform = playerCameraHolder.Find("FirstPersonCamera");
     }
 
     private void Update()
