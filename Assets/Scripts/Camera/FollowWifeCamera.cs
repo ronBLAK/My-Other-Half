@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FollowPlayerCamera : MonoBehaviour
+public class FollowWifeCamera : MonoBehaviour
 {
     private Transform firstPersonCamera; // reference to the first person camera
     private Transform playerTransform; // reference to the player's transform
@@ -9,7 +9,7 @@ public class FollowPlayerCamera : MonoBehaviour
 
     public void Start()
     {
-        playerTransform = Husband.instance.GetSpawnedPlayer().transform; // get the player's transform
+        playerTransform = Wife.instance.GetSpawnedPlayer().transform; // get the player's transform
 
         // get the first person camera and holder, and finds the first person camera from its parent holder
         firstPersonCameraHolder = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;

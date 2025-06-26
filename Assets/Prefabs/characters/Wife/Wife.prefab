@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2453949296411839113}
   - component: {fileID: 6988558894244818402}
   - component: {fileID: 6659030366738079504}
-  - component: {fileID: 7476666932232892689}
+  - component: {fileID: 534357793368910880}
   m_Layer: 0
   m_Name: ThirdPersonCamera
   m_TagString: MainCamera
@@ -138,7 +138,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &7476666932232892689
+--- !u!114 &534357793368910880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2725738917892718842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b53d99bdc7b494744ab7d0c8fa035fb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 66cdb2fcceb0f4f1f805defaeb1861a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 100
@@ -312,7 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db93980100f8442cacb33b19dd10917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCameraTransform: {fileID: 0}
   pickupLayerMask:
     serializedVersion: 2
     m_Bits: 8

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MouseLook : MonoBehaviour
+public class MouseLookWife : MonoBehaviour
 {
     private Transform playerBody; // Reference to the player's body object to rotate horizontally
     private Transform thirdPersonCamera; // Reference to the third person camera
@@ -19,7 +19,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         // setting of third person camera and its holder (playerBody)
-        playerBody = Husband.instance.GetSpawnedPlayer().transform;
+        playerBody = Wife.instance.GetSpawnedPlayer().transform;
         thirdPersonCamera = playerBody.transform.Find("ThirdPersonCamera");
 
         // setting of first person camera and its holder (firstPersonCameraHolder)
@@ -49,7 +49,7 @@ public class MouseLook : MonoBehaviour
 
         // Rotate the camera and player when in first-person mode
         playerBody.Rotate(Vector3.up * mouseX);
-        firstPersonCameraHolder.rotation = Husband.instance.GetSavedHusbandRotation();
+        firstPersonCameraHolder.rotation = Wife.instance.GetSavedWifeRotation();
 
         // Update and clamp the vertical rotation of the camera
         verticalRotation -= mouseY;

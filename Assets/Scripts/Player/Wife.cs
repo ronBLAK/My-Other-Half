@@ -84,6 +84,16 @@ public class Wife : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public GameObject GetSpawnedPlayer()
+    {
+        return spawnedPlayer;
+    }
+
+    public Quaternion GetSavedWifeRotation()
+    {
+        return savedRotationWife;
+    }
+
     // methods to handle dropping items out of the inventory (not used in this script), but used in the actual dropping logic (when the items are removed from the inventory). these methods are just declared in the player husband class because they are attributes of the player (drop logic)
     public void DropBlueKey(GameObject blueKey)
     {
