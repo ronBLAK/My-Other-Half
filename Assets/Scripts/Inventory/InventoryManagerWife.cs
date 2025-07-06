@@ -58,7 +58,7 @@ public class InventoryManagerWife : MonoBehaviour
             itemName.text = item.itemName; // sets the name of the item in inventory to item name from scriptablre object
             itemIcon.sprite = item.icon; // sets the icon of the item in inventory to item icon from scriptable object
 
-            InventoryItemControllerHusband controller = obj.GetComponent<InventoryItemControllerHusband>();
+            InventoryItemControllerWife controller = obj.GetComponent<InventoryItemControllerWife>();
             controller.AddItem(item); // Ensure the item is assigned here!
 
             if (enableRemove.isOn)

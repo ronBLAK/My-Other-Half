@@ -23,7 +23,7 @@ public class MouseLookHusband : MonoBehaviour
         thirdPersonCamera = playerBody.transform.Find("ThirdPersonCamera");
 
         // setting of first person camera and its holder (firstPersonCameraHolder)
-        firstPersonCameraHolder = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+        firstPersonCameraHolder = InstantiateFirstPersonCameraHusband.instance.GetSpawnedFirstPersonCamera().transform;
         firstPersonCamera = firstPersonCameraHolder.transform.Find("FirstPersonCamera");
 
         // Lock the cursor to the center of the screen and hide it

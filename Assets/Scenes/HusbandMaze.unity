@@ -572,6 +572,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 7783306836852765675, guid: 5dc1f24d1ba184437927af3ac3221df6, type: 3}
   firstPersonCameraSpawnPoint: {fileID: 1798254861}
+  restartButton: {fileID: 2140968863}
+  dontSaveQuitButton: {fileID: 31356005}
 --- !u!224 &141283760 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7303879737833018671, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}

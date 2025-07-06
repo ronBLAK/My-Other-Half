@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPickUpDrop : MonoBehaviour
+public class PlayerPickUpDropHusband : MonoBehaviour
 {
     private Transform playerCameraTransform; // Reference to the player's camera for raycasting
     private Transform playerCameraHolder; // reference to the GameObject holding the
@@ -14,7 +14,7 @@ public class PlayerPickUpDrop : MonoBehaviour
 
     private void Start()
     {
-        playerCameraHolder = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+        playerCameraHolder = InstantiateFirstPersonCameraHusband.instance.GetSpawnedFirstPersonCamera().transform;
         playerCameraTransform = playerCameraHolder.Find("FirstPersonCamera");
     }
 

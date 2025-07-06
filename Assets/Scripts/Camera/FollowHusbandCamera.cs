@@ -12,7 +12,7 @@ public class FollowHusbandCamera : MonoBehaviour
         playerTransform = Husband.instance.GetSpawnedPlayer().transform; // get the player's transform
 
         // get the first person camera and holder, and finds the first person camera from its parent holder
-        firstPersonCameraHolder = InstantiateFirstPersonCamera.instance.GetSpawnedFirstPersonCamera().transform;
+        firstPersonCameraHolder = InstantiateFirstPersonCameraHusband.instance.GetSpawnedFirstPersonCamera().transform;
         firstPersonCamera = firstPersonCameraHolder.Find("FirstPersonCamera");
 
         fpcOffset = new Vector3(0f, 0.75f, playerTransform.position.z - firstPersonCamera.position.z); // sets the off

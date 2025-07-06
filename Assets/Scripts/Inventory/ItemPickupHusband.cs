@@ -14,7 +14,7 @@ public class ItemPickupHusband : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {
+    { 
         Pickup();
     }
 }
