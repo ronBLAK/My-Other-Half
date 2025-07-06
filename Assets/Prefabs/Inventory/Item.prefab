@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6577951259296689808}
   - component: {fileID: 6827992939044642481}
   - component: {fileID: 5467732714938494189}
+  - component: {fileID: 4788603069346009488}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -134,6 +135,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ff8eebb297541649a82fa4d7133ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4788603069346009488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138510128988837841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f5a575ffcfe47dea2f4d5c28332a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &907914958367751780
@@ -269,7 +282,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4788603069346009488}
         m_TargetAssemblyTypeName: InventoryItemControllerWife, Assembly-CSharp
         m_MethodName: DropItem
         m_Mode: 1
