@@ -92,6 +92,11 @@ public class Husband : MonoBehaviour
         return spawnedPlayer;
     }
 
+    public Vector3 GetSavedHusbandPosition()
+    {
+        return savedPositionHusband;
+    }
+
     public Quaternion GetSavedHusbandRotation()
     {
         return savedRotationHusband;

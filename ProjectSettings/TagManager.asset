@@ -7,13 +7,16 @@ TagManager:
   - CinemachineTarget
   - Obstacles
   - Ground
-  - red key
-  - blue key
-  - green key
   - red lock
   - blue lock
   - green lock
   - key holder
+  - blue key husband
+  - green key husband
+  - red key husband
+  - blue key wife
+  - green key wife
+  - red key wife
   layers:
   - Default
   - TransparentFX

@@ -170,6 +170,38 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
+        // husband first person camera keys deletion
+        if (PlayerPrefs.HasKey("SavedPosXFirstPersonCameraHusband"))
+        {
+            // position
+            PlayerPrefs.DeleteKey("SavedPosXFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedPosYFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedPosZFirstPersonCameraHusband");
+
+            // rotation
+            PlayerPrefs.DeleteKey("SavedRotXFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedRotYFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedRotZFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedRotWFirstPersonCameraHusband");
+            PlayerPrefs.Save();
+        }
+
+        // wife first person camera keys deletion
+        if (PlayerPrefs.HasKey("SavedPosXFirstPersonCameraWife"))
+        {
+            // position
+            PlayerPrefs.DeleteKey("SavedPosXFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedPosYFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedPosZFirstPersonCameraWife");
+
+            // rotation
+            PlayerPrefs.DeleteKey("SavedRotXFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedRotYFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedRotZFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedRotWFirstPersonCameraWife");
+            PlayerPrefs.Save();
+        }
+
         // delete husband inventory save data
         if (PlayerPrefs.HasKey("SavedInventoryHusband"))
         {
@@ -331,6 +363,38 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.DeleteKey("SavedWifeRedKeyRotationY");
             PlayerPrefs.DeleteKey("SavedWifeRedKeyRotationZ");
             PlayerPrefs.DeleteKey("SavedWifeRedKeyRotationW");
+            PlayerPrefs.Save();
+        }
+
+        // husband first person camera keys deletion
+        if (PlayerPrefs.HasKey("SavedPosXFirstPersonCameraHusband"))
+        {
+            // position
+            PlayerPrefs.DeleteKey("SavedPosXFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedPosYFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedPosZFirstPersonCameraHusband");
+
+            // rotation
+            PlayerPrefs.DeleteKey("SavedRotXFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedRotYFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedRotZFirstPersonCameraHusband");
+            PlayerPrefs.DeleteKey("SavedRotWFirstPersonCameraHusband");
+            PlayerPrefs.Save();
+        }
+
+        // wife first person camera keys deletion
+        if (PlayerPrefs.HasKey("SavedPosXFirstPersonCameraWife"))
+        {
+            // position
+            PlayerPrefs.DeleteKey("SavedPosXFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedPosYFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedPosZFirstPersonCameraWife");
+
+            // rotation
+            PlayerPrefs.DeleteKey("SavedRotXFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedRotYFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedRotZFirstPersonCameraWife");
+            PlayerPrefs.DeleteKey("SavedRotWFirstPersonCameraWife");
             PlayerPrefs.Save();
         }
 

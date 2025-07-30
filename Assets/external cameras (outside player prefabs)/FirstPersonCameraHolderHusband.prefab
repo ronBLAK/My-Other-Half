@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2124641889457288801}
   - component: {fileID: 4042772600276048372}
   - component: {fileID: 2328901873449087361}
-  - component: {fileID: 3784215402322185405}
+  - component: {fileID: 5792274466659153464}
   m_Layer: 0
   m_Name: FirstPersonCamera
   m_TagString: Untagged
@@ -186,7 +186,7 @@ MonoBehaviour:
   sensitivity: 100
   clampAngle: 80
   crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
---- !u!114 &3784215402322185405
+--- !u!114 &5792274466659153464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

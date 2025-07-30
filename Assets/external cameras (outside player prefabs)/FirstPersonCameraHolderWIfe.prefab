@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4285390623689892210}
   - component: {fileID: 3428718357466182218}
   - component: {fileID: 4864402046163381991}
-  - component: {fileID: 4625874916134915047}
   m_Layer: 0
   m_Name: FirstPersonCamera
   m_TagString: Untagged
@@ -154,18 +153,6 @@ MonoBehaviour:
   sensitivity: 100
   clampAngle: 80
   crosshair: {fileID: 6841886499552389638, guid: d29b175f1536e4539b47fdf264aa9b1e, type: 3}
---- !u!114 &4625874916134915047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3952056931152908532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c455980bef1634beba94e962ffe3a5c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9221096180414138914
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8282913467476682004}
+  - component: {fileID: 9007029404299320318}
   m_Layer: 0
   m_Name: FirstPersonCameraHolderWIfe
   m_TagString: Untagged
@@ -198,3 +186,15 @@ Transform:
   - {fileID: 7882624995501550230}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9007029404299320318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221096180414138914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c455980bef1634beba94e962ffe3a5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1183,9 +1183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 9221096180414138914, guid: 150e32eea764c4e469c30354cf81461a, type: 3}
-  firstPersonCameraSpawnPoint: {fileID: 640433889}
-  restartButton: {fileID: 319536257}
-  dontSaveQuitButton: {fileID: 251631296}
 --- !u!1 &251631294
 GameObject:
   m_ObjectHideFlags: 0

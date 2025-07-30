@@ -89,6 +89,11 @@ public class Wife : MonoBehaviour
         return spawnedPlayer;
     }
 
+    public Vector3 GetSavedWifePosition()
+    {
+        return savedPositionWife;
+    }
+
     public Quaternion GetSavedWifeRotation()
     {
         return savedRotationWife;
