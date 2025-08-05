@@ -10,7 +10,7 @@ public class GroundCheck : MonoBehaviour
 
     private void Start()
     {
-        // Get the CharacterController component attached to the player
+        // Get the CharacterController component attached to the object this is attached to
         characterController = GetComponent<CharacterController>();
     }
 

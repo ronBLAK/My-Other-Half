@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class RedLockHusband : MonoBehaviour
 {
-    public bool isRedLockHusbandOpened = false;
+    public static RedLockHusband instance;
+
+    public bool isRedLockHusbandOpened = false; // flag to check if the red lock has been opened by the husband
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     // Called when another collider enters this object's collider
     private void OnTriggerEnter(Collider other)
