@@ -22,14 +22,18 @@ public class MazeGenerator : MonoBehaviour
     {
         // loads the saved seed if a seed exists
         // if not, loads a maze with a new seed
-        if(PlayerPrefs.HasKey("Seed"))
+        if (PlayerPrefs.HasKey("Seed"))
         {
             seed = PlayerPrefs.GetInt("Seed");
             Random.InitState(seed);
-        } else
+        }
+        else
         {
-            int randomSeed = Random.Range(1, 1000000);
-            Random.InitState(randomSeed);
+            int seed = Random.Range(1, 1000000);
+            Random.InitState(seed);
+            // save seed value with PlayerPrefs
+            PlayerPrefs.SetInt("Seed", seed);
+            PlayerPrefs.Save();
         }
 
         mazeGrid = new MazeCell[mazeWidth, mazeDepth]; // creates a new maze grid
@@ -50,9 +54,7 @@ public class MazeGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // save seed value with PlayerPrefs
-        PlayerPrefs.SetInt("Seed", seed);
-        PlayerPrefs.Save();
+        //
     }
 
     // method to generate maze

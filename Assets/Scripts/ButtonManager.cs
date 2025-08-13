@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
+    // all gameplay button functionality
+
     public void Play()
     {
         SceneManager.LoadScene("HusbandMaze");
@@ -27,18 +30,18 @@ public class ButtonManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         PauseOnOffHusband.gamePaused = false;
-        
+
         GameObject pauseMenu = GameObject.Find("pause menu");
         pauseMenu.SetActive(false);
     }
-    
+
     public void ResumeWife()
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         PauseOnOffWife.gamePaused = false;
-        
+
         GameObject pauseMenu = GameObject.Find("pause menu");
         pauseMenu.SetActive(false);
     }
@@ -229,11 +232,7 @@ public class ButtonManager : MonoBehaviour
 
     public void Quit()
     {
-        // activates the popup for whether to save and quit or quit without saving
-        Transform quitPopupParent = GameObject.Find("pause menu").transform;
-        Transform quitPopup = quitPopupParent.Find("quit popup");
-
-        quitPopup.gameObject.SetActive(true);
+        Application.Quit();
     }
 
     public void SaveAndQuit()
@@ -242,11 +241,11 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("HomeScene");
     }
 
-    public void QuitWithoutSaving()
+    public void NewGame()
     {
         // quits the game without saving
         // husband deletion
-        if(PlayerPrefs.HasKey("SavedPosXHusband"))
+        if (PlayerPrefs.HasKey("SavedPosXHusband"))
         {
             Debug.Log("key does exist and is about to be deleted");
 
@@ -262,13 +261,14 @@ public class ButtonManager : MonoBehaviour
 
             PlayerPrefs.Save();
             Debug.Log("keys deleted successfully");
-        } else
+        }
+        else
         {
             Debug.Log("key does not exist");
         }
 
         // wife deletion
-        if(PlayerPrefs.HasKey("SavedPosXWife"))
+        if (PlayerPrefs.HasKey("SavedPosXWife"))
         {
             Debug.Log("key does exist and is about to be deleted");
 
@@ -285,14 +285,15 @@ public class ButtonManager : MonoBehaviour
 
             PlayerPrefs.Save();
             Debug.Log("keys deleted successfully");
-        } else
+        }
+        else
         {
             Debug.Log("key does not exist");
         }
-        
+
         // key deletetion
         // husband maze keys deletion
-        if(PlayerPrefs.HasKey("SavedHusbandBlueKeyPositionX"))
+        if (PlayerPrefs.HasKey("SavedHusbandBlueKeyPositionX"))
         {
             // blue key
             PlayerPrefs.DeleteKey("SavedHusbandBlueKeyPositionX");
@@ -329,8 +330,8 @@ public class ButtonManager : MonoBehaviour
         }
 
         // wife maze keys deletion
-        
-        if(PlayerPrefs.HasKey("SavedWifeBlueKeyPositionX"))
+
+        if (PlayerPrefs.HasKey("SavedWifeBlueKeyPositionX"))
         {
             // blue key
             PlayerPrefs.DeleteKey("SavedWifeBlueKeyPositionX");
@@ -420,14 +421,14 @@ public class ButtonManager : MonoBehaviour
         }
 
         // forwards timer deletion
-        if(PlayerPrefs.HasKey("TimerValue"))
+        if (PlayerPrefs.HasKey("TimerValue"))
         {
             PlayerPrefs.DeleteKey("TimerValue");
             PlayerPrefs.Save();
         }
 
         // load the home scene
-        SceneManager.LoadScene("HomeScene");
+        SceneManager.LoadScene("HusbandMaze");
     }
 
     public void CancelQuit()
@@ -435,5 +436,24 @@ public class ButtonManager : MonoBehaviour
         // deactivates the quit popup menu
         GameObject quitPopup = GameObject.Find("quit popup");
         quitPopup.SetActive(false);
+    }
+
+
+
+
+    // all home scene button functionalities
+
+    public void Instruction()
+    {
+        // opens the instruction menu
+        GameObject instructionMenu = GameObject.Find("help");
+        instructionMenu.SetActive(false);
+    }
+
+    public void InstructionsDeactivate()
+    {
+        // find the instructions panel
+        GameObject instructionsMenu = GameObject.Find("help");
+        instructionsMenu.SetActive(false);
     }
 }
