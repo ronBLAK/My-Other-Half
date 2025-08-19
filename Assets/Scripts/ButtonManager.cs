@@ -203,6 +203,11 @@ public class ButtonManager : MonoBehaviour
         // find the instructions panel
         GameObject instructionsMenu = GameObject.Find("help");
         instructionsMenu.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Time.timeScale = 1; // resume the time factor, so that the use can play the game after reading the instructions
     }
 
 
