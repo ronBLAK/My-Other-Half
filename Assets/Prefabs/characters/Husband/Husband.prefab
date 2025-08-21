@@ -312,7 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db93980100f8442cacb33b19dd10917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCameraTransform: {fileID: 5446458664704606879, guid: 5dc1f24d1ba184437927af3ac3221df6, type: 3}
   pickupLayerMask:
     serializedVersion: 2
     m_Bits: 8
