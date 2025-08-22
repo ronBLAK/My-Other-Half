@@ -31,7 +31,25 @@ public class CutsceneManager : MonoBehaviour
     public GameObject commonCamera;
     public GameObject husbandFirstPersonCameraForGame;
 
-    private void OnTriggerEnter(Collider other)
+    [Header("Required animator components to swap out the animator controllers on the husband during runtime")]
+    public Animator husbandAnimator; // holds the animator component attached to the husband
+    public RuntimeAnimatorController inGameHusbandAnimator; // holds the animator that needs to be swapped into the husband animator controller when the cutscene ends
+    public Avatar inGameHusbandAnimatorAvatar;
+
+    [Header("Scripts that need to be manipulated for the cutscene to work")]
+    // game objects
+    public GameObject HusbandGO;
+
+    // scripts
+    private PlayerMovement playerMovement;
+
+    void Awake()
+    {
+        husbandAnimator = HusbandGO.GetComponent<Animator>();
+        playerMovement = HusbandGO.GetComponent<PlayerMovement>();
+    }
+
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -41,11 +59,17 @@ public class CutsceneManager : MonoBehaviour
             }
             else if (gameObject.name == "cutscene end trigger")
             {
-                Debug.Log("spawning keys");
+                Debug.LogWarning("spawning keys");
 
                 // since active camera is common camera for cutscene, when cutscene ends, switch to husband camera tpc and fpc
                 husbandFirstPersonCameraForGame.SetActive(true);
-                commonCamera.SetActive(false);
+                Destroy(commonCamera);
+
+                // swap out the controllers and avatars for the husband to the playable version, when the cutscene ends
+                husbandAnimator.runtimeAnimatorController = inGameHusbandAnimator;
+                husbandAnimator.avatar = inGameHusbandAnimatorAvatar;
+
+                playerMovement.enabled = true;
 
                 // spawn all three keys at set spawn point
                 Instantiate(blueKey, blueKeySpawnPoint.transform.position, Quaternion.identity);
@@ -60,6 +84,7 @@ public class CutsceneManager : MonoBehaviour
                 Time.timeScale = 0; // stop time - pause the game when the instructions are displayed
 
                 Destroy(gameObject); // destroys the trigger so the cutscene cannot be played again in the same run
+                Destroy(other.gameObject); // destroys the player tagged object that collided with the trigger - wife
             }
             else if (gameObject.name == "camera help trigger")
             {
