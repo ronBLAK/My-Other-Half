@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -40,6 +42,12 @@ public class CutsceneManager : MonoBehaviour
     // game objects
     public GameObject HusbandGO;
 
+    [Header("Entry message planes to guide the user into the next stage of the help section")]
+    public GameObject entryOne; // reference to the camera controls section guide
+    public GameObject entryTwo; // reference to the add to inventory controls section guide
+    public GameObject entryThree; // reference to the pickup key controls guide
+    public GameObject entryFour; // reference to the help end guide
+
     // scripts
     private PlayerMovement playerMovement;
 
@@ -53,11 +61,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (gameObject.name == "storyline start trigger")
-            {
-                // write logic to start the part of the cutscene where the wife is taken away from the husband
-            }
-            else if (gameObject.name == "cutscene end trigger")
+            if (gameObject.name == "cutscene end trigger")
             {
                 Debug.LogWarning("spawning keys");
 
@@ -71,17 +75,14 @@ public class CutsceneManager : MonoBehaviour
 
                 playerMovement.enabled = true;
 
-                // spawn all three keys at set spawn point
-                Instantiate(blueKey, blueKeySpawnPoint.transform.position, Quaternion.identity);
-                Instantiate(GreenKey, greenKeySpawnPoint.transform.position, Quaternion.identity);
-                Instantiate(redKey, redKeySpawnPoint.transform.position, Quaternion.identity);
-
+                // set up the guidance panel to show the movement controls
                 guidancePanel.SetActive(true);
-                guidanceText.text = "\n\nUse the WASD or Arrow keys to move the player, Shift to run, and use your mouse or trackpad to look around the map";
+                guidanceText.text = "\n\nUse the WASD or Arrow keys to move the player, Shift to run, and use your mouse or trackpad to look around the map\n\n Move Forward Towards Next Gate";
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                Time.timeScale = 0;
 
-                Time.timeScale = 0; // stop time - pause the game when the instructions are displayed
+                entryOne.SetActive(true); // enable entry 1
 
                 Destroy(gameObject); // destroys the trigger so the cutscene cannot be played again in the same run
                 Destroy(other.gameObject); // destroys the player tagged object that collided with the trigger - wife
@@ -90,25 +91,34 @@ public class CutsceneManager : MonoBehaviour
             {
                 // show camera controls
                 guidancePanel.SetActive(true);
-                guidanceText.text = "\n\n\nPress the E key twice to switch camera view between first person and third person";
+                guidanceText.text = "\n\n\nPress the E key twice to switch camera view between first person and third person\n\n Try and Move Forward Towards Next Gate";
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                Time.timeScale = 0;
 
-                Time.timeScale = 0; // stop time - pause the game when the instructions are displayed
+                entryTwo.SetActive(true); // enable entry 2
 
                 Destroy(gameObject); // destroys the trigger so that part of the scene cannot be played again in a single run of the playable help section
+                Destroy(entryOne); // destroy entry 1
             }
             else if (gameObject.name == "add to inventory trigger")
             {
                 // show how to pick up keys to inventory
                 guidancePanel.SetActive(true);
-                guidanceText.text = "\n\n\nPoint the crosshair on the key, and left click to pick up and add to inventory";
+                guidanceText.text = "\n\n\nPoint the crosshair on the key, and left click to pick up and add to inventory\n\n Try and Move Forward Towards Next Gate";
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                Time.timeScale = 0;
 
-                Time.timeScale = 0; // stop time - pause the game when the instructions are displayed
+                entryThree.SetActive(true); // enables entry 3
+
+                // spawn all three keys at set spawn point
+                Instantiate(blueKey, blueKeySpawnPoint.transform.position, Quaternion.identity);
+                Instantiate(GreenKey, greenKeySpawnPoint.transform.position, Quaternion.identity);
+                Instantiate(redKey, redKeySpawnPoint.transform.position, Quaternion.identity);
 
                 Destroy(gameObject); // destroys the trigger so that part of the scene cannot be played again in the same run of the playable help section
+                Destroy(entryTwo); // destroy entry 2
             }
             else if (gameObject.name == "pickup key trigger")
             {
@@ -119,13 +129,20 @@ public class CutsceneManager : MonoBehaviour
 
                 // show key pickup controls
                 guidancePanel.SetActive(true);
-                guidanceText.text = "Point the crosshair on the key, and right to pick it up to move it around.\n Right click again to drop the key. \n BEWARE: THE KEYS ARE SLIPPERY, AND IF YOU ACCIDENTALY DROP THE KEYS ON THE GROUND, YOU WILL BE TRAPPED IN THE MAZE FOREVER";
+                guidanceText.text = "Point the crosshair on the key, and right to pick it up to move it around.\n Right click again to drop the key. \n BEWARE: THE KEYS ARE SLIPPERY, AND IF YOU ACCIDENTALY DROP THE KEYS ON THE GROUND, YOU WILL BE TRAPPED IN THE MAZE FOREVER\n\n Try and Move Forward Towards Next Gate";
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                Time.timeScale = 0;
 
-                Time.timeScale = 0; // stop time - pause the game when the instructions are displayed
+                entryFour.SetActive(true);
 
                 Destroy(gameObject); // destroys the trigger so that part of the scene cannot be played again in the same run of the playable help section
+                Destroy(entryThree); // destroy entry 3
+            }
+            else if (gameObject.name == "help end gate")
+            {
+                SceneManager.LoadScene("HomeScene"); // load the home scene after ending                
+                Destroy(entryFour); // destroy entry 4
             }
         }
     }

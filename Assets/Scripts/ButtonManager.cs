@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+
     // all gameplay button functionality
 
     public void Play()
@@ -208,6 +215,11 @@ public class ButtonManager : MonoBehaviour
         Cursor.visible = false;
 
         Time.timeScale = 1; // resume the time factor, so that the use can play the game after reading the instructions
+    }
+
+    public void Controls()
+    {
+        SceneManager.LoadScene("Storyline"); // load the playable help section
     }
 
 
