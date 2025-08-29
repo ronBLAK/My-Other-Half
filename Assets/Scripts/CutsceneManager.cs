@@ -48,6 +48,9 @@ public class CutsceneManager : MonoBehaviour
     public GameObject entryThree; // reference to the pickup key controls guide
     public GameObject entryFour; // reference to the help end guide
 
+    [Header("Portal")]
+    public GameObject suckingPortal;
+
     // scripts
     private PlayerMovement playerMovement;
 
@@ -86,6 +89,7 @@ public class CutsceneManager : MonoBehaviour
 
                 Destroy(gameObject); // destroys the trigger so the cutscene cannot be played again in the same run
                 Destroy(other.gameObject); // destroys the player tagged object that collided with the trigger - wife
+                Destroy(suckingPortal);
             }
             else if (gameObject.name == "camera help trigger")
             {
