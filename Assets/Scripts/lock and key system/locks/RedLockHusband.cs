@@ -9,6 +9,8 @@ public class RedLockHusband : MonoBehaviour
 
     public bool isRedLockHusbandOpened = false; // flag to check if the red lock has been opened by the husband
 
+    public Animator shackleAnimator; // reference to the animator of the shackle
+
     public void Awake()
     {
         instance = this;
@@ -26,6 +28,8 @@ public class RedLockHusband : MonoBehaviour
 
             // the mesh collider of the key gate is by default enabled, so we need to disable it to allow the key to pass through
             gateMeshCollider.enabled = false;
+
+            shackleAnimator.SetBool("IsRedLockOpenedHusband", true);
         }
         else
         {

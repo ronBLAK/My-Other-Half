@@ -9,6 +9,8 @@ public class GreenLockWife : MonoBehaviour
 
     public bool isGreenLockWifeOpened = false;
 
+    public Animator shackleAnimator; // reference to the animator of the shackle
+
     public void Awake()
     {
         instance = this;
@@ -25,6 +27,8 @@ public class GreenLockWife : MonoBehaviour
             isGreenLockWifeOpened = true;
 
             gateMeshCollider.enabled = false;
+
+            shackleAnimator.SetBool("IsGreenLockOpenedWife", true);
         }
         else
         {

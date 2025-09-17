@@ -9,6 +9,8 @@ public class BlueLockWife : MonoBehaviour
 
     public bool isBlueLockWifeOpened = false;
 
+    public Animator shackleAnimator; // reference to the animator of the shackle
+
     public void Awake()
     {
         instance = this;
@@ -25,6 +27,8 @@ public class BlueLockWife : MonoBehaviour
             isBlueLockWifeOpened = true;
 
             gateMeshCollider.enabled = false;
+
+            shackleAnimator.SetBool("IsBlueLockOpenedWife", true);
         }
         else
         {
@@ -34,4 +38,3 @@ public class BlueLockWife : MonoBehaviour
         }
     }
 }
-// hello

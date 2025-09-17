@@ -9,6 +9,8 @@ public class BlueLockHusband : MonoBehaviour
 
     public bool isBlueLockHusbandOpened = false; // flag to check if the blue lock has been opened by the husband
 
+    public Animator shackleAnimator; // reference to the animator of the shackle
+
     public void Awake()
     {
         instance = this;
@@ -26,6 +28,8 @@ public class BlueLockHusband : MonoBehaviour
 
             // the mesh collider of the key gate is by default enabled, so we need to disable it to allow the key to pass through
             gateMeshCollider.enabled = false;
+
+            shackleAnimator.SetBool("IsBlueLockOpenedHusband", true); // triggers the lock opening animation when the lock is opened
         }
         else
         {
