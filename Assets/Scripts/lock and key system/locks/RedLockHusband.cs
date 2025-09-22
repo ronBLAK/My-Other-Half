@@ -17,6 +17,26 @@ public class RedLockHusband : MonoBehaviour
         gateMeshCollider = keyGate.GetComponent<MeshCollider>();
     }
 
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("IsRedLockHusbandOpened"))
+        {
+            isRedLockHusbandOpened = PlayerPrefs.GetInt("IsRedLockHusbandOpened", 0) == 1;
+        }
+        else
+        {
+            isRedLockHusbandOpened = false;
+        }
+    }
+
+    public void Update()
+    {
+        if(isRedLockHusbandOpened)
+        {
+            shackleAnimator.SetBool("IsRedLockOpenedHusband", true);
+        }
+    }
+
     // Called when another collider enters this object's collider
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +45,10 @@ public class RedLockHusband : MonoBehaviour
         {
             Debug.Log("red lock in husband scene openedd");
             isRedLockHusbandOpened = true;
+
+            // save the current state of the lock (after it has been opened). this will revert back to false when reset, as the game is quit without saving or restarted
+            PlayerPrefs.SetInt("IsRedLockHusbandOpened", isRedLockHusbandOpened ? 1 : 0);
+            PlayerPrefs.Save();
 
             // the mesh collider of the key gate is by default enabled, so we need to disable it to allow the key to pass through
             gateMeshCollider.enabled = false;

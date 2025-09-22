@@ -17,6 +17,26 @@ public class BlueLockWife : MonoBehaviour
         gateMeshCollider = keyGate.GetComponent<MeshCollider>();
     }
 
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("IsBlueLockOpenedWife"))
+        {
+            isBlueLockWifeOpened = PlayerPrefs.GetInt("IsBlueLockOpenedWife", 0) == 1;
+        }
+        else
+        {
+            isBlueLockWifeOpened = false;
+        }
+    }
+
+    public void Update()
+    {
+        if(isBlueLockWifeOpened)
+        {
+            shackleAnimator.SetBool("IsBlueLockOpenedWife", true);
+        }
+    }
+
     // Called when another collider enters this object's collider
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +45,9 @@ public class BlueLockWife : MonoBehaviour
         {
             Debug.Log("blue lock in wife scene openedd");
             isBlueLockWifeOpened = true;
+
+            PlayerPrefs.SetInt("IsBlueLockOpenedWife", isBlueLockWifeOpened ? 1 : 0);
+            PlayerPrefs.Save();
 
             gateMeshCollider.enabled = false;
 

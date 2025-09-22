@@ -17,6 +17,26 @@ public class GreenLockHusband : MonoBehaviour
         gateMeshCollider = keyGate.GetComponent<MeshCollider>();
     }
 
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("IsGreenLockHusbandOpened"))
+        {
+            isGreenLockHusbandOpened = PlayerPrefs.GetInt("IsGreenLockHusbandOpened", 0) == 1;
+        }
+        else
+        {
+            isGreenLockHusbandOpened = false;
+        }
+    }
+
+    public void Update()
+    {
+        if(isGreenLockHusbandOpened)
+        {
+            shackleAnimator.SetBool("IsGreenLockOpenedHusband", true);
+        }
+    }
+
     // Called when another collider enters this object's collider
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +45,10 @@ public class GreenLockHusband : MonoBehaviour
         {
             Debug.Log("green lock in husband scene opened");
             isGreenLockHusbandOpened = true;
+
+            // save the current state of the lock (after it has been opened). this will revert back to false when reset, as the game is quit without saving or restarted
+            PlayerPrefs.SetInt("IsGreenLockHusbandOpened", isGreenLockHusbandOpened ? 1 : 0);
+            PlayerPrefs.Save();
 
             // the mesh collider of the key gate is by default enabled, so we need to disable it to allow the key to pass through
             gateMeshCollider.enabled = false;

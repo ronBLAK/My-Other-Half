@@ -17,6 +17,26 @@ public class RedLockWife : MonoBehaviour
         gateMeshCollider = keyGate.GetComponent<MeshCollider>();
     }
 
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("IsRedLockOpenedWife"))
+        {
+            isRedLockWifeOpened = PlayerPrefs.GetInt("IsRedLockOpenedWife", 0) == 1;
+        }
+        else
+        {
+            isRedLockWifeOpened = false;
+        }
+    }
+
+    public void Update()
+    {
+        if(isRedLockWifeOpened)
+        {
+            shackleAnimator.SetBool("IsRedLockOpenedWife", true);
+        }
+    }
+
     // Called when another collider enters this object's collider
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +45,9 @@ public class RedLockWife : MonoBehaviour
         {
             Debug.Log("red lock in wife scene openedd");
             isRedLockWifeOpened = true;
+
+            PlayerPrefs.SetInt("IsRedLockOpenedWife", isRedLockWifeOpened ? 1 : 0);
+            PlayerPrefs.Save();
 
             gateMeshCollider.enabled = false;
 

@@ -64,6 +64,9 @@ public class ButtonManager : MonoBehaviour
         DeleteAllKeysSaveDataWife();
         DeleteHusbandCameraSaveData();
         DeleteWifeCameraSaveData();
+        DeleteHusbandLockData();
+        DeleteWifeLockData();
+        
 
         // delete husband inventory save data
         if (PlayerPrefs.HasKey("SavedInventoryHusband"))
@@ -105,6 +108,8 @@ public class ButtonManager : MonoBehaviour
         DeleteAllKeysSaveDataWife();
         DeleteHusbandCameraSaveData();
         DeleteWifeCameraSaveData();
+        DeleteHusbandLockData();
+        DeleteWifeLockData();
 
         // delete husband inventory save data
         if (PlayerPrefs.HasKey("SavedInventoryHusband"))
@@ -150,6 +155,8 @@ public class ButtonManager : MonoBehaviour
         DeleteAllKeysSaveDataWife();
         DeleteHusbandCameraSaveData();
         DeleteWifeCameraSaveData();
+        DeleteHusbandLockData();
+        DeleteWifeLockData();
 
         // husband inventory save data deletion
         if (PlayerPrefs.HasKey("SavedInventoryHusband"))
@@ -406,6 +413,50 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.DeleteKey("SavedRotYFirstPersonCameraWife");
             PlayerPrefs.DeleteKey("SavedRotZFirstPersonCameraWife");
             PlayerPrefs.DeleteKey("SavedRotWFirstPersonCameraWife");
+            PlayerPrefs.Save();
+        }
+    }
+
+    public void DeleteHusbandLockData()
+    {
+        // deletes all husband scene lock data
+        if(PlayerPrefs.HasKey("IsBlueLockHusbandOpened"))
+        {
+            PlayerPrefs.DeleteKey("IsBlueLockHusbandOpened");
+            PlayerPrefs.Save();
+        }
+
+        if(PlayerPrefs.HasKey("IsGreenLockHusbandOpened"))
+        {
+            PlayerPrefs.DeleteKey("IsGreenLockHusbandOpened");
+            PlayerPrefs.Save();
+        }
+
+        if(PlayerPrefs.HasKey("IsRedLockHusbandOpened"))
+        {
+            PlayerPrefs.DeleteKey("IsRedLockHusbandOpened");
+            PlayerPrefs.Save();
+        }
+    }
+
+    public void DeleteWifeLockData()
+    {
+        // deletes all wife scene lock data
+        if (PlayerPrefs.HasKey("IsBlueLockOpenedWife"))
+        {
+            PlayerPrefs.DeleteKey("IsBlueLockOpenedWife");
+            PlayerPrefs.Save();
+        }
+
+        if(PlayerPrefs.HasKey("IsGreenLockOpenedWife"))
+        {
+            PlayerPrefs.DeleteKey("IsGreenLockOpenedWife");
+            PlayerPrefs.Save();
+        }
+
+        if(PlayerPrefs.HasKey("IsRedLockOpenedWife"))
+        {
+            PlayerPrefs.DeleteKey("IsRedLockOpenedWife");
             PlayerPrefs.Save();
         }
     }

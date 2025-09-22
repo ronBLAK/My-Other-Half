@@ -54,6 +54,15 @@ public class WifeEndPortalLogic : MonoBehaviour
         {
             Debug.Log("key does not exist");
         }
+
+        if(PlayerPrefs.HasKey("IsBlueLockOpenedWife")) // only checking for one lock existence, as if the portal is unlocked, then all three locks must to be opened
+        {
+            // delete the saved lock data
+            PlayerPrefs.DeleteKey("IsBlueLockOpenedWife");
+            PlayerPrefs.DeleteKey("IsGreenLockOpenedWife");
+            PlayerPrefs.DeleteKey("IsRedLockOpenedWife");
+            PlayerPrefs.Save();
+        }
         
         // loads the husband scene if it has not yet been completed (husband has not yet entered his portal)
         // loads the end scene if husband maze has been completed
