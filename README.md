@@ -8,8 +8,8 @@ FOR THE .EXE FILE ON WINDOWS
 
       - MonoBleedingEdge zip.zip
       - UnityCrashHandler64.exe
-      - digi game lvl 2 zip.zip
-      - digi game lvl 2_Data zip file.zip
+      - My Other Half.zip
+      - My Ohter Half_Data zip file.zip
 
   2. CREATE A NEW FOLDER ON THE COMPUTER TO STORE THE GAME FILES
 
