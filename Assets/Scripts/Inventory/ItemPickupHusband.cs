@@ -14,7 +14,8 @@ public class ItemPickupHusband : MonoBehaviour
     }
 
     private void OnMouseDown()
-    { 
+    {
+        Debug.Log("Clicked " + gameObject.name); 
         Pickup();
     }
 }

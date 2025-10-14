@@ -61,6 +61,12 @@ public class BlueLockHusband : MonoBehaviour
 
             // set mesh collider of gate to true just in case it was previously disabled
             gateMeshCollider.enabled = true;
+
+            if (other.attachedRigidbody != null)
+            {
+                // Nudge it upwards slightly to re-check collisions
+                other.attachedRigidbody.position += Vector3.up * 0.1f;
+            }
         }
     }
 }

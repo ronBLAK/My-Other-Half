@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+//using UnityEngine.Playables;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -51,13 +52,21 @@ public class CutsceneManager : MonoBehaviour
     [Header("Portal")]
     public GameObject suckingPortal;
 
-    // scripts
+    [Header("Scripts")]
     private PlayerMovement playerMovement;
+
+    // [Header("Playable Director")]
+    // public PlayableDirector director;
 
     void Awake()
     {
         husbandAnimator = HusbandGO.GetComponent<Animator>();
         playerMovement = HusbandGO.GetComponent<PlayerMovement>();
+    }
+
+    void Start()
+    {
+        Time.timeScale = 1;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -133,7 +142,7 @@ public class CutsceneManager : MonoBehaviour
 
                 // show key pickup controls
                 guidancePanel.SetActive(true);
-                guidanceText.text = "Point the crosshair on the key, and right to pick it up to move it around.\n Right click again to drop the key. \n BEWARE: THE KEYS ARE SLIPPERY, AND IF YOU ACCIDENTALY DROP THE KEYS ON THE GROUND, YOU WILL BE TRAPPED IN THE MAZE FOREVER\n\n Try and Move Forward Towards Next Gate";
+                guidanceText.text = "Point the crosshair on the key, and right to pick it up to move it around.\n Right click again to drop the key. \n Try and Move Forward Towards Next Gate";
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0;

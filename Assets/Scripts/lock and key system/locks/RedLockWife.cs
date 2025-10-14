@@ -58,6 +58,12 @@ public class RedLockWife : MonoBehaviour
             Debug.Log("please drop the correct key");
 
             gateMeshCollider.enabled = true;
+
+            if (other.attachedRigidbody != null)
+            {
+                // Nudge it upwards slightly to re-check collisions
+                other.attachedRigidbody.position += Vector3.up * 0.1f;
+            }
         }
     }
 }
