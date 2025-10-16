@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float walkSpeed = 2f; // Player walking speed
-    public float runSpeed = 6f;  // Player running speed
+    public const float walkSpeed = 2f; // Player walking speed
+    public const float runSpeed = 2.261f;  // Player running speed
     private Animator mainCharAnimControl; // Reference to the Animator component for controlling animations
     public Camera playerCamera; // Reference to the Camera to calculate movement relative to it
     private float currentSpeed; // Variable to store the current speed (walk or run)
@@ -25,16 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Clamp speed values to prevent excessive values
-        if (walkSpeed >= 6)
-        {
-            walkSpeed = 6;
-        }
-        if (runSpeed >= 7)
-        {
-            runSpeed = 7;
-        }
-
         // Retrieve input for horizontal and vertical movement
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
         score = CalculateScore();
 
         // sets the score text to the calculated score
-        scoreText.text = score.ToString();
+        scoreText.text = "score: " + score.ToString();
     }
 
     // method to carry out calculation of player score based on the time remaining
